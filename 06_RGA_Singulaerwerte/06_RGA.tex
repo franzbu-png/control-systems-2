@@ -33,33 +33,41 @@ Das Vorzeichen der Verstärkung der Übertragungsfunktion von $u_j$ auf $y_i$ im
 \textbf{Das RGA} ist die Matrix mit den relativen gains aller Übertragungsfunktionen als Einträgen. 
 
 Das RGA einer $2 \times 2$ Regelstrecke $P(s)$ ist: 
-\[
+\begin{equation*}
 \colorboxed{red}{
 RGA(s) = 
 {\renewcommand{\arraystretch}{2}
 \begin{bmatrix}
-\frac{P_{11}P_{22}}{P_{11}P_{22}-P{12}P_{21}} & \frac{-P_{12}P_{21}}{P_{22}P_{11}-P{21}P_{12}}\\
-\frac{-P_{12}P_{21}}{P_{22}P_{11}-P{21}P_{12}} & \frac{P_{11}P_{22}}{P_{11}P_{22}-P{12}P_{21}}
+\frac{P_{11}P_{22}}{P_{11}P_{22}-P_{12}P_{21}} & \frac{-P_{12}P_{21}}{P_{22}P_{11}-P_{21}P_{12}}\\
+\frac{-P_{12}P_{21}}{P_{22}P_{11}-P_{21}P_{12}} & \frac{P_{11}P_{22}}{P_{11}P_{22}-P_{12}P_{21}}
 \end{bmatrix}
 }
 }
-\]
+\end{equation*}
+
 das RGA eines allgemeinen MIMO-Systems $P(s)$ kann wie folgt berechnet werden: 
 \[
 \colorboxed{red}{
 RGA(s) = P(s).\times P(s)^{-\top}
 }
 \] wobei $.\times$ eine elementweise Multiplikation beschreibt und $P(s)^{-T}$ die Inverse der Transponierten ist. 
-\textbf{Eigenschaften des RGA:} Die Summe der Spalten und der Zeilen des RGA ergeben immer. dies gilt auch für RGAs höherer Ordnung.
-Dies führt, kombiniert mit der obigen Analyse zu den individuellen Einträgen $[\,RGA(s)]\,_{ij}$ zu folgendem Fazit:
-Falls das RGA bei einer gegebenen Frequenz $\omega$ ungefähr eine Einheitsmatrix: 
-\[\big[RGA(\jw)\big]\approx 
-{\renewcommand{\arraystretch}{1.5}
-\begin{bmatrix}
-1&0&0\\
-0&\ddots&0\\
-0&0&1
-\end{bmatrix}
-}
-\]
-dann ist das betrachtete MIMO-System bei dieser Frequenz mit individuellen SISO-Reglern regelbar. Oder allgemein: falls in jeder Zeile/Spalte ein Eintrag sehr nahe bei eins ist und die anderen nahe bei Null, sind diese Kombinationen von Ein- und Ausgängen gut mit einem SISO-Regler regelbar.
+
+\textbf{Eigenschaften des RGA:} 
+\begin{itemize}
+    \item Die Summe der Spalten und der Zeilen des RGA ergeben immer 1.
+    
+    \item Ist das RGA bei einer gegebenen Frequenz $\omega$ ungefähr eine Einheitsmatrix:
+    \begin{equation*}
+        \big[RGA(\jw)\big]\approx 
+        {\renewcommand{\arraystretch}{1.5}
+        \begin{bmatrix}
+            1&0&0\\
+            0&\ddots&0\\
+            0&0&1
+        \end{bmatrix}
+        },
+    \end{equation*}
+    dann ist das betrachtete MIMO-System bei dieser Frequenz mit individuellen SISO-Reglern regelbar.
+\end{itemize}
+\textbf{Allgemein:} falls in jeder Zeile/Spalte ein Eintrag sehr nahe bei 1 ist und die anderen nahe bei 0, sind diese Kombinationen von Ein- und Ausgängen gut mit einem SISO-Regler regelbar.
+
