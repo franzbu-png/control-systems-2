@@ -1,0 +1,29 @@
+\subsection{Finite Horizon LQR}
+Das Integral der Kostenfunktion geht im Gegensatz zur Standardformulierung nur über ein Zeitintervall $t_a$ bis $t_b$. Dementsprechend lautet die Kostenfunktion:
+\[J(u) = x^T(t_b)\cdot P \cdot x(t_b) + \int_{t_a}^{t_b}(x^T\cdot Q(t)\cdot x+u^T\cdot R(t)\cdot u) dt.\]
+Mit der Kostenmatrix $ P \in \mathbb{R}^{n \times n}, P = P^T \succeq 0$ wird eine Abweichung des finalen Zustands $ x(t_b)$ vom Ursprung bestraft. Das System kann in diesem Fall zeitinvariant sein: \[\frac{d}{dt}x(t) = A(t)x(t)+B(t)u(t),\ x(t) \in \mathbb{R}^n,\ u(t) \in \mathbb{R}^m,\ x(t_a)=x_a\]
+Die Lösung der finite Horizon Formulierung lautet:
+\[u(t) = -K(t)x(t),\ \text{wobei } K(t)=R^{-1}(t)B^T(t)\Phi(t).\]
+Die Matrix  $\Phi(t)$ ist die Lösung der differential matrix Riccati Gleichung:
+\[\frac{d}{dt}\Phi(t)=\Phi(t)B(t)R^{-1}(t)B^T(t)\Phi(t) -\Phi(t)A(t)-A^T(t)\Phi(t)-Q(t)\]
+wobei $\Phi(t)$ durch Rückwärtsintegration von $\Phi(t_b) = P$ gefunden werden kann.
+\textbf{Bemerkungen:}
+\begin{itemize}
+    \item Die Matrix $K(t)$ ist zeitabhängig. Sie muss entsprechend der Zeitabhängigkeit der Matrizen $\{A(t),B(t),Q(t),R(t)\}$
+    \item Die Matrix P ist eine neue Tuninggrösse.
+    \item Die Matrix $K(t)$ ist nur für das Zeitintervall $ t in [\,t_a,t_b]\,$ gültig. Für Zeiten $t > t_b$ muss $K(t)$ neu evaluiert werden.
+    \item asymptotische Stabilität kann nicht garantiert werden, da für $t>t_b$ nicht optimiert wird.
+\end{itemize}
+\subsubsection{Folgeregelung}
+Zusätzlich dur zeitinvarianten Dynamik wird nun der zeitvariante Ausgang eingeführt: \[y(t) = C(t) \cdot x(t)\]
+Die KOsten die über ein Zeitintervall $[\,t_a,t_b]\,$ integriert werden lauten: \begin{align*}J(u)=(r(t_b)-y(t_b))^T\cdot P\cdot(r(t_b)-y(t_b))\\
+\int_{t_a}^{t_b}((r(t)-y(t))^T \cdot Q(t)\cdot (r(t)-y(t))+u(t)^T\cdot R(t) \cdot u(t))dt
+\end{align*}
+Die Lösung der finiten horizon Folgeregelung lautet: \[u(t) = -K(t)\cdot x(t) + v(t)\]
+\textbf{Bemerkungen:}
+\begin{itemize}
+    \item Die Referenztrajektorie $r(t)$ ist eine Wahl, die vor dem Lösen des Optimierungsproblems festgelegt wird.
+    \item Die Matrix $K(t)$ ist zeitabhängig. Sie muss ensprechend der Zeitabhängigkeit der Matrizen $\{A(t),B(t),Q(t),R(t)\}$ berechnen werden. 
+    \item Die Matrix K(t) ist nur für das Zeitintervall $t \in [\,t_a,t_b]\,$ gültig. Für Zeiten $t>t_b$ muss $K(t)$ neu evaluiert werden.
+    \item $v(t)$ ist ein zeitabhängiges feedforward Signal, welches nur im Zeitintervall $t \in [\,t_a,t_b]\,$ für eine spezifische Referenz $r(t)$ gültig ist.
+\end{itemize}

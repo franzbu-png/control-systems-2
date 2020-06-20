@@ -1,0 +1,48 @@
+\begin{center}
+    \def\arraystretch{1.5}
+    \begin{tabular}{p{5cm}|p{8cm}}
+        \textbf{Command}    &   \textbf{Description}\\
+        \hline
+        \texttt{bode(SYS)}  &  Draws the Bode plot of the dynamic system SYS. The frequency range and number of points are chosen automatically.\\
+        \texttt{[MAG,PHASE] = bode(SYS,W) [MAG,PHASE,W] = bode(SYS)} & Return the response magnitudes and phases in degrees (along with the frequency vector W if unspecified).  No plot is drawn on the screen. \\
+        \texttt{nyquist(SYS)}  &  Draws the Nyquist plot of the dynamic system SYS. \\
+        \texttt{[RE,IM] = nyquist(SYS,W) [RE,IM,W] = nyquist(SYS)} & Return the real parts RE and imaginary parts IM of the frequency response (along with the frequency vector W if unspecified).  No plot is drawn on the screen. \\
+        \texttt{sys = ss(A,B,C,D)}  & Creates an object SYS representing the continuous-time state-space model \\
+        \texttt{(E =) [V,D] = eig(A)}  &  Produces a diagonal matrix D of eigenvalues and a full matrix V whose columns are the corresponding eigenvectors so that A*V = V*D. (Produces a column vector E containing the eigenvalues of a square matrix A.)\\
+        \texttt{co = ctrb(A,B) (= ctrb(SYS))}  & Returns the controllability matrix $[B AB A^2B ...]$.  \\
+        \texttt{ob = obsv(A,C) (= obsv(SYS))}  & Returns the observability matrix $[C; CA; CA^2 ...]$ \\
+        \texttt{s = tf('s')}  & Specifies the transfer function H(s) = s (Laplace variable). \\
+        \texttt{SYS = tf(NUM,DEN, 'InputDelay', T)} & Creates a continuous-time transfer function SYS with numerator NUM and denominator DEN and optinal time delay $T$.\\
+        \texttt{P = tf(sys)}  & Converts any dynamic system SYS to the transfer function representation. \\
+        \texttt{MSYS = minreal(SYS)}  &  Produces, for a given LTI model SYS, an equivalent model MSYS where all cancelling pole/zero pairs or non minimal state dynamics are eliminated.  For state-space models, minreal produces a minimal realization MSYS of SYS where all uncontrollable or unobservable modes have been removed.\\
+        \texttt{X = fminsearch(FUN,X0)}  &  Starts at X0 and attempts to find a local minimizer X of the function FUN.  FUN is a function handle.  FUN accepts input X and returns a scalar function value F evaluated at X. X0 can be a scalar, vector or matrix.\\
+        \texttt{P = pole(SYS))}  & Returns the poles P of the dynamic system SYS as a column vector. For state-space models, the poles are the eigenvalues of the A matrix. \\
+        \texttt{[Z,G] = zero(SYS)} & Computes the zeros Z and gain G of the single-input, single-output dynamic system SYS.\\
+        \texttt{Z = tzero(SYS,TOL)}  &  Computes the invariant zeros of the dynamic system SYS. For state-space models with matrices A,B,C,D,E (= I), the invariant zeros are the complex values s for which the rank of the matrix $\begin{bmatrix} A -sE & B\\ C & D\end{bmatrix}$ drops below its normal value. For minimal realizations, this coincides with the transmission zeros of SYS (values of s for which its transfer function drops rank).\\ 
+        \texttt{[NUM,DEN] = tfdata(SYS)} & Returns the numerator(s) and denominator(s) of the transfer function SYS. \\
+    \end{tabular}
+    \begin{tabular}{p{5cm}|p{8cm}}
+        \textbf{Command}    &   \textbf{Description}\\
+        \hline
+        \texttt{[Z,P,K] = tf2zp(NUM,DEN)} & Finds the zeros, poles, and gains from a transferfunction in the form of $\displaystyle H(s) = K\cdot\frac{(s-z1)(s-z2)\dots(s-zn)}{(s-p1)(s-p2)\dots(s-pn)}$\\
+        \texttt{[Z,P,K] = zpkdata(SYS)} & Returns the zeros, poles, and gain for each I/O channel of the dynamic system SYS.\\
+        \texttt{eye(M)/ eye(M,N)/ eye(size(A))}  &  M-by-M/M-by-N/siz(A) matrix with 1's on the diagonal and zeros elsewhere. \\
+        \texttt{zeros(M)/ zeros(M,N)/ zeros(size(A))}  &  M-by-M/M-by-N/size(A) matrix of zeros.\\
+        \texttt{rga = P.*inv(P')}  &  MATLAB code to compute the RGA matrix of P\\
+        \texttt{bodemag(SYS)}  &  Plots the magnitude of the frequency response of the linear system SYS (useful for RGA/\textbf{Bode plot without the phase diagram}). \\
+        \texttt{sigma(SYS)}  &  Produces a singular value (SV) plot of the frequency response of the dynamic system SYS.\\
+        \texttt{[U,S,V] = svd(X)}  &  Produces a diagonal matrix S, of the same dimension as X and with nonnegative diagonal elements in decreasing order, and unitary matrices U and V so that $X = U\cdot S\cdot V^\top$.\\
+        \texttt{SimOut = sim('MODEL', PARAMETERS)}  & Simulates your Simulink model, where 'PARAMETERS' represents a list of parameter name-value pairs. \\
+        \texttt{L = series(C,P)}  & Connects the input/ouput models $C$ and $P$ in series. \\
+        \texttt{M = feedback(M1,M2)}  &  Computes a closed-loop model M (assumes negative feedback: for positive add ",+1")\\
+        $\mathtt{\mu_{\textnormal{min}} = min( abs(bode(1 + L)))}$  &  Computes the minimum return difference of a given open loop gain $L$\\
+        \texttt{[Gm,Pm,Wcg,Wcp] = margin(SYS)}  & Computes the gain margin Gm, the phase margin Pm, and the associated frequencies Wcg and Wcp, for the SISO open-loop model SYS. The gain margin Gm is defined as 1/G where G is the gain at the -180 phase crossing. The phase margin Pm is in degrees. \\
+        \texttt{margin(SYS)} & Creates a Bode plot of the open loop and marks the gain and phase margins in the plot. \\
+        \texttt{B = squeeze(A)}  &  Returns an array B with the same elements as A but with all the singleton dimensions removed.\\
+        \texttt{SYSD = c2d(SYSC,TS,METHOD)}  &  Computes a discrete-time model SYSD with sample time TS that approximates the continuous-time model SYSC (method = zoh, foh, impulse, tustin,...)\\
+        \texttt{SYSC = d2c(SYSD,METHOD)} & Computes a continuous-time model SYSC that approximates the discrete-time model SYSD. (method = as above)
+    \end{tabular}
+\end{center}
+
+
+\newpage

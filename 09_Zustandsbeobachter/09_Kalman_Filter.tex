@@ -1,0 +1,30 @@
+\subsection{Kalman Filter}
+    Falls das Rauschen $n_u(t)$ und $n_y(t)$ \textit{Gausian zero mean white noise Signale} sind und die Varianz der Gaussverteilung bekannt ist, kann man ein ``optimales" $L$ finden, welches die Varianz des Beobachtungsfehlers $e(t)$ minimiert. Man änder dabei
+    \begin{align*}
+        \Bar{B}\cdot\Bar{B}^\top &\rightarrow B\cdot R_u \cdot B^\top\\
+        q\cdot I &\rightarrow R_y
+    \end{align*}
+    
+    \textbf{Bemerkungen:}
+    \begin{itemize}
+        \item $L_K$ ist statisch
+        \item Kalman Filter hat keine tuning-Parameter mehr. $R_u,\, R_y$ werden durch statische Analyse bestimmt.
+    \end{itemize}
+    
+    \subsection{Vergleich}
+        Vergleich der LQR Formulierung der verschiedenen Methoden
+        \begin{center}
+            {\renewcommand{\arraystretch}{1.4}
+            \begin{tabular}{c|c|c}
+                LQR &   Luenberger  &   Kalman  \\
+                \hline
+                $K$ &   $L^\top$    &   $L^\top_K$\\
+                \hline
+                $A$ &   $A^\top$    &   $A^\top$\\
+                $B$ &   $C^\top$    &   $C^\top$\\
+                $Q = \Bar{C}^\top\cdot\Bar{C}$  &   $\Bar{B}\cdot\Bar{B}^\top$    &   $B\cdot R_u  \cdot B^\top$\\
+                $R$ & $q\cdot I$    &   $R_y$\\
+                $\Phi$ & $\Psi$     &   $P$
+            \end{tabular}
+            }
+        \end{center}

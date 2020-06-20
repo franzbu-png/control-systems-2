@@ -1,0 +1,161 @@
+\subsection{Resultierende Regelkreise}
+    Für alle betrachteten Regelkreise ist es möglich die resultierenden Systemgleichungen der offenen und geschlossenen Regelkreise darzustellen, wobei $e_r = r-y$:
+    \begin{align*}
+        \textnormal{Offener Regelkreis}\, L(s) &: e_r \rightarrow y\\
+        \textnormal{Geschlossener Regelkreis}\, T(s) &: r \rightarrow y\\
+    \end{align*}
+    Betrachtung offener Regelkreis $\rightarrow$ Robustheitsbetrachtungen,
+    
+    Geschlossener Regelkreis $\rightarrow$ Stabilitätsverhalten, transientes Verhalten.
+    
+    \begin{align*}
+        \frac{d}{dt}x(t) &= A\cdot x(t) + B\cdot u(t)\\
+        \frac{d}{dt}\widehat{x}(t) &= A\cdot \widehat{x}(t) + B\cdot u(t) + L\big(y(t)-\widehat{y}(t)\big)\\
+        \frac{d}{dt}v(t) &= r(t) - y(t),\quad\textnormal{(nur bei integrativen Strukturen)}\\
+        y(t) &= C\cdot x(t),\,\textnormal{mit}\\
+        \Tilde{x}(t) &=\begin{bmatrix}x(t)\\\widehat{x}(t)\end{bmatrix}\,\textnormal{oder}\, \Tilde{x}(t) =\begin{bmatrix}x(t)\\\widehat{x}(t)\\v(t)\end{bmatrix}
+    \end{align*}
+    
+    \subsubsection{LQG-Regler}
+        Regelgesetz:
+        \begin{equation*}
+            u(t) = -K\cdot\widehat{x}(t),\quad\textnormal{mit}\, r(t) = 0\,\textnormal{und}\, e_r = 0-y(t)
+        \end{equation*}
+        Offener Regelkreis:
+        \begin{equation*}
+            \frac{d}{dt}\Tilde{x}(t) = 
+            \begin{bmatrix}
+            A   & -BK\\
+            0   &   A-BK-LC
+            \end{bmatrix}\cdot\Tilde{x}(t) +
+            \begin{bmatrix} 0\\ -L\end{bmatrix}\cdot e_r(t)
+        \end{equation*}
+        Geschlossener Regelkreis:
+        \begin{equation*}
+            \frac{d}{dt}\Tilde{x}(t) = 
+            \begin{bmatrix}
+            A   & -BK\\
+            LC   &   A-BK-LC
+            \end{bmatrix}\cdot\Tilde{x}(t) +
+            \begin{bmatrix} 0\\ -L\end{bmatrix}\cdot r(t)
+        \end{equation*}
+        
+     \subsubsection{LQG-Regler mit Folgeregelung}
+        Regelgesetz:
+        \begin{equation*}
+            u(t) = \mathit{\Gamma}-K\cdot\widehat{x}(t)
+        \end{equation*}
+        Offener Regelkreis:
+        \begin{equation*}
+            \frac{d}{dt}\Tilde{x}(t) = 
+            \begin{bmatrix}
+            A +B\mathit{\Gamma}C   & -BK\\
+            LC +B\mathit{\Gamma}C  &   A-BK-LC
+            \end{bmatrix}\cdot\Tilde{x}(t) +
+            \begin{bmatrix} B\\ B\end{bmatrix}\cdot \mathit{\Gamma}\cdot e_r(t)
+        \end{equation*}
+        Geschlossener Regelkreis:
+        \begin{equation*}
+            \frac{d}{dt}\Tilde{x}(t) = 
+            \begin{bmatrix}
+            A   & -BK\\
+            LC &   A-BK-LC
+            \end{bmatrix}\cdot\Tilde{x}(t) +
+            \begin{bmatrix} B\\ B\end{bmatrix}\cdot \mathit{\Gamma}\cdot r(t)
+        \end{equation*}
+        
+    \subsubsection{LQGI-Regler zur Störungsunterdrückung}
+        Regelgesetz:
+        \begin{equation*}
+            u(t) = -K\cdot\widehat{x}(t) + K_I\cdot v(t),\quad\textnormal{mit}\, r(t) = 0
+        \end{equation*}
+        Offener Regelkreis:
+        \begin{equation*}
+            \frac{d}{dt}\Tilde{x}(t) = 
+            \begin{bmatrix}
+            A   & -BK &   BK_I\\
+            0   &   A-BK-LC &   BK_I\\
+            0   &   0   &   0
+            \end{bmatrix}\cdot\Tilde{x}(t) +
+            \begin{bmatrix} 0\\ -L\\ I\end{bmatrix}\cdot e_r(t)
+        \end{equation*}
+        Geschlossener Regelkreis:
+        \begin{equation*}
+            \frac{d}{dt}\Tilde{x}(t) = 
+            \begin{bmatrix}
+            A   & -BK &   BK_I\\
+            LC   &   A-BK-LC &   BK_I\\
+            -C  &   0   &   0
+            \end{bmatrix}\cdot\Tilde{x}(t) +
+            \begin{bmatrix} 0 & B\\ -L & 0\\ I & 0\end{bmatrix}\cdot \begin{bmatrix}r(t)\\w(t)\end{bmatrix}
+        \end{equation*}
+        
+    \subsubsection{LQGI-Regler mit Folgeregelung}
+        Regelgesetz:
+        \begin{equation*}
+            u(t) = \mathit{\Gamma} - K\cdot\widehat{x}(t) + K_I\cdot v(t),\quad\textnormal{mit}\, r(t) = 0
+        \end{equation*}
+        Offener Regelkreis:
+        \begin{equation*}
+            \frac{d}{dt}\Tilde{x}(t) = 
+            \begin{bmatrix}
+            A + B\mathit{\Gamma}C & -BK &   BK_I\\
+            LC + B\mathit{\Gamma}C   &   A-BK-LC &   BK_I\\
+            0   &   0   &   0
+            \end{bmatrix}\cdot\Tilde{x}(t) +
+            \begin{bmatrix} B\mathit{\Gamma}\\ B\mathit{\Gamma}\\ I\end{bmatrix}\cdot e_r(t)
+        \end{equation*}
+        Geschlossener Regelkreis:
+        \begin{equation*}
+            \frac{d}{dt}\Tilde{x}(t) = 
+            \begin{bmatrix}
+            A   & -BK &   BK_I\\
+            LC   &   A-BK-LC &   BK_I\\
+            -C  &   0   &   0
+            \end{bmatrix}\cdot\Tilde{x}(t) +
+            \begin{bmatrix} B\mathit{\Gamma} & B\\ B\mathit{\Gamma} & 0\\ I & 0\end{bmatrix}\cdot \begin{bmatrix}r(t)\\w(t)\end{bmatrix}
+        \end{equation*}
+        
+\subsection{Berechnung der Übertragungsfunktionen}
+    Die offenen Regelkreise haben die Struktur
+    \begin{equation*}
+    \colorboxed{red}{
+    \begin{aligned}
+        \frac{d}{dt}\tilde{x}(t) &= \Tilde{A}_\textnormal{ol}\cdot\tilde{x}(t) + \tilde{B}_\textnormal{ol}\cdot e_r(t)\\
+        y(t) &= \underbrace{\big[C\ 0\big]}_{\tilde{C}_\textnormal{ol}}\cdot \tilde{x}(t)
+    \end{aligned}
+    }
+    \end{equation*}
+    Für die gescchlossenen Regelkreise folgen die Systemmatrizen $\{\tilde{A}_\textnormal{cl},\, \tilde{B}_\textnormal{cl},\, \tilde{C}_\textnormal{cl}\}$ anolg.
+    
+    Die Übertragungsfunktion der offenen Regelkreise $L(s)$ von $e_r\rightarrow y$ lautet somit:
+    \begin{equation*}
+    \colorboxed{red}{
+        L_{\textnormal{LQG}}(s) = \tilde{C}_\textnormal{ol}\cdot\big(s\cdot I - \tilde{A}_\textnormal{ol}\big)^{-1}\cdot \tilde{B}_\textnormal{ol}
+    }
+    \end{equation*}
+    
+    Identisch kann man mit $(\cdot)_{\textnormal{cl}}$ die komplementäre Sensitivität $T(s)$ von $r\rightarrow y$ berechnen:
+    \begin{equation*}
+    \colorboxed{red}{
+        T_{\textnormal{LQG}}(s) = \tilde{C}_\textnormal{cl}\cdot\big(s\cdot I - \tilde{A}_\textnormal{cl}\big)^{-1}\cdot \tilde{B}_\textnormal{cl}
+    }
+    \end{equation*}
+    
+    \subsubsection{Bsp}
+        Der open-loop gain für den Standart LQG-Regler ergibt sich also aus
+        \begin{align*}
+            L_{\textnormal{LQG}}(s) &= 
+            \underbrace{\begin{bmatrix}
+            C & 0
+            \end{bmatrix}}_{\tilde{C}_\textnormal{ol}}\cdot
+            \underbrace{\begin{bmatrix}
+            s\cdot I - A    &   BK\\
+            0               &   s\cdot I - (A - BK - LC)
+            \end{bmatrix}^{-1}}_{(sI-\tilde{A}_\textnormal{ol})^{-1}}\cdot
+            \underbrace{\begin{bmatrix}
+            0\\-L
+            \end{bmatrix}}_{\tilde{B}_\textnormal{ol}}\\
+            &=\underbrace{C\cdot(s\cdot I - A)^{-1}\cdot B}_{\textnormal{Plant}} \cdot \underbrace{K\cdot\big(s\cdot I - (A - BK - LC)\big)^{-1}\cdot L}_{\textnormal{Controller}}
+        \end{align*}
+        Aufgrund der Struktur von $\tilde{C}_\textnormal{ol}$ und $\tilde{B}_\textnormal{ol}$ muss in diesem Fall nur der Eintrag oben rechts der Inversen berechnet werden.

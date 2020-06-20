@@ -4,21 +4,96 @@
 
 \maketitle
 \begin{center}
-This is a \LaTeX-Template created by \textit{naefjo@ethz.ch}\\
-Code is also available on https://github.com/naefjo/Summary-Template
+    This summary has been written based on the Lecture 151-0590-00L Regelungstechnik II by Prof. Dr. Guzzella (FS20) and the weekly theory sheets provided by C. Küttel. There is no guarantee for completeness and/or correctness regarding the content of this summary. Use it at your own discretion
 \end{center}
 \newpage
 
 \begin{center}
-    \begin{multicols*}{2}
+    \begin{multicols*}{3}
         \tableofcontents
     \end{multicols*}
 \end{center}
 
+\begin{multicols*}{2}
+\section{MATLAB Cheat Sheet}
+        \input{01_MATLAB/01_ML_Commands}
+
+\end{multicols*}
 \begin{multicols*}{3}
+\section{PID}
+    \input{02_PID/02_PID}
 
-\input{01_lipsum/lipsum.tex}
+\vfill\null\columnbreak
+\section{Spezifikation der Sensitivität}
+    \input{03_Sensitivity/03_Multiplicative_Sens}
+    \input{03_Sensitivity/03_Robuste_Regelgüte}
 
+\vfill\null\columnbreak    
+\section{Kaskadierte Systeme}
+    \input{04_diverse_SISO/04_Kaskad_Sys}
+
+\vfill\null\columnbreak 
+\section{Wurzelortskurven/Root Locus}
+    \input{04_diverse_SISO/04_Root_Locus}
+
+\vfill\null\columnbreak 
+\section{Numerische Verfahren}
+    \input{04_diverse_SISO/04_Numerical_Methods}
+    
+\section{PID in der Praxis}
+    \input{04_diverse_SISO/04_Set_point_Weights}
+    \input{04_diverse_SISO/04_Saturation_ARW}
+    \input{04_diverse_SISO/04_Gain_Scheduling_Analog_Discrete_Time}
+    
+\vfill\null\columnbreak
+\section{Algebraishe Stabilität}
+    \input{04_diverse_SISO/04_alg_stab}
+    \input{04_diverse_SISO/04_alg_stab_bsp}
+
+\vfill\null\columnbreak 
+\section{MIMO}
+    \input{05_MIMO/Systembeschreibung}
+    \input{05_MIMO/05_Pole_NST}
+    \input{05_MIMO/05_Pol_NST_Bsp}
+
+\vfill\null\columnbreak 
+\section{RGA}
+    \input{06_RGA_Singulaerwerte/06_RGA}
+
+\vfill\null\columnbreak 
+\section{Singulärwerte}
+    \input{06_RGA_Singulaerwerte/06_Singulaerwerte}
+  
+\vfill\null\columnbreak  
+\section{Frequenzantworten}
+    \input{07_Frequenzantworten/07_Frequenzantwort_SISO_recap}
+    \input{07_Frequenzantworten/07_Frequenzantwort_MIMO}
+    \input{07_Frequenzantworten/07_Singulärwertverläufe}
+    
+\vfill\null\columnbreak
+\section{LQR}
+    \input{08_LQR/08_infinite_Horizon_LQR}
+    \input{08_LQR/08_Loesung_der_LQR_formulierung}
+    \input{08_LQR/08_Folgeregelung}
+    \input{08_LQR/08_Stoerungsunterdrueckung}
+    \input{08_LQR/08_Folgeregelung_mit_Stoerungsunterdrueckung}
+    \input{08_LQR/08_finite_horizon_LQR}
+    
+\vfill\null\columnbreak
+\section{Zustandsbeobachter}
+    \input{09_Zustandsbeobachter/09_Zustandsbeobachter}
+    \input{09_Zustandsbeobachter/09_Kalman_Filter}
+    
+\section{LQG}
+    \input{10_LQG/10_LQG_Controller}
+    \input{10_LQG/10_LQG_Folgeregelung}
+    \input{10_LQG/10_LQGI}
+    \input{10_LQG/10_Regelkreise}
+    
+% \vfill\null\columnbreak
+\section{Wiederherstellung der Robustheit}
+    \input{11_LTR/11_LTR}
+    
 \end{multicols*}     
 
 \end{document}

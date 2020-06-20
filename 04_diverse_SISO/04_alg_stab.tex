@@ -1,0 +1,37 @@
+Man möchte wissen, ob ein Polynom
+\begin{equation*}
+    a_n\cdot s^n + a_{n-1}\cdot s^{n-1} + \dots + a_1\cdot s + a_0,\quad a_n > 0
+\end{equation*}
+alle NST in der linken komplexen Halbebene hat. Bedingung $a_i>0\, \forall i$ ist notwendig aber nicht hinreichend \Big(alle  NST MMP $\underset{\not\Leftarrow}{\Rightarrow} a_i > 0$\Big).
+
+\subsection{Hurwitz Kriterium}
+    Koeffizienten $a_i$ bekannt. Falls alle Matrizen
+    \begin{equation*}
+        H_1 = a_{n-1}, \,
+        H_2 =
+        \begin{bmatrix}
+            a_{n-1} & a_n\\
+            a_{n-3} & a_{n-2}
+        \end{bmatrix}, \,
+        H_3 = 
+        \begin{bmatrix}
+            a_{n-1} & a_n   & 0\\
+            a_{n-3} & a_{n-2} & a_{n-1}\\
+            a_{n-5} & a_{n-4} & a_{n-3}
+        \end{bmatrix}, \, \dots
+    \end{equation*}
+    positiv definit sind (alle EW grösser als 0), dann sind alls NST in der linken komplexen Halbebene.
+    
+\subsection{Kharitonov Kriterium}
+    Die Koeffizienten $a_i$ seien nicht exakt bekannt, man weiss jedoch, dass sie in einer gewissen Region liegen:
+    \begin{equation*}
+        p(s,a) = [\underline{a}_n,\overline{a}_n]\cdot s^n +  [\underline{a}_{n-1},\overline{a}_{n-1}]\cdot s^{n-1} + \dots +  [\underline{a}_0,\overline{a}_0]
+    \end{equation*}
+    
+    Das Problem reduziert sich auf die Ecken eines Rechtecks in der komplexen Ebene und es müssen nur folgende Polynome mit dem Hurwitz Kriterium getestet werden:
+    \begin{align*}
+        p_1(s) &= \overline{a}_0 + \underline{a}_1\cdot s +\underline{a}_2\cdot s^2 + \overline{a}_3\cdot s^3 + \dots\\
+        p_2(s) &= \overline{a}_0 + \overline{a}_1\cdot s +\underline{a}_2\cdot s^2 + \underline{a}_3\cdot s^3 + \dots\\
+        p_3(s) &= \underline{a}_0 + \overline{a}_1\cdot s +\overline{a}_2\cdot s^2 + \underline{a}_3\cdot s^3 + \dots\\
+        p_3(s) &= \underline{a}_0 + \underline{a}_1\cdot s +\overline{a}_2\cdot s^2 + \overline{a}_3\cdot s^3 + \dots\\
+    \end{align*}

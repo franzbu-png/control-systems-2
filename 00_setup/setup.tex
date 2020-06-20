@@ -1,10 +1,8 @@
-\documentclass[a4paper, 9pt]{extarticle}
+\documentclass[a4paper, 8pt]{extarticle}
 \setcounter{page}{0}
-\renewcommand{\baselinestretch}{0.9} %spacing between lines
 
-\usepackage{lipsum} %create dummy text
 
-\usepackage{hyperref}
+\usepackage[pdfencoding=auto, psdextra]{hyperref}
 
 \usepackage[landscape]{geometry}
 \geometry{
@@ -25,13 +23,13 @@
 \usepackage[ngerman]{babel}
 
 \usepackage{multicol} %multiple columns
-\usepackage{wrapfig} %wrap text around figures
 
 %get rid of spacing between lists
-\usepackage{enumitem} 
-    \setlist{nolistsep}
+% \usepackage{enumitem} 
+    % \setlist{nolistsep}
 
 %imagepackage
+\usepackage{float}
 \usepackage{graphicx} 
     \graphicspath{ {./images/} }
 
@@ -87,14 +85,41 @@
 \usepackage{fancyhdr} 
     \pagestyle{fancy}
     \fancyhf{}
-    \rhead{Joshua Näf, \textit{naefjo@ethz.ch}}
+    \rhead{Joshua Näf and Franz Büelmä \textit{naefjo@ethz.ch, franzbu@ethz.ch}}
     \chead{\textbf{\thepage}}
-    \lhead{\textbf{Summary Template}}
+    \lhead{\textbf{Control Systems II Spring 20 Prof. Dr. L. Guzzella}}
     \setlength{\headsep}{1mm}
-    
+
+
+%colourful boxes for math mode
+% Syntax: \colorboxed[<color model>]{<color specification>}{<math formula>}
+\usepackage{xcolor}
+\newcommand*{\colorboxed}{}
+\def\colorboxed#1#{%
+  \colorboxedAux{#1}%
+}
+\newcommand*{\colorboxedAux}[3]{%
+  % #1: optional argument for color model
+  % #2: color specification
+  % #3: formula
+  \begingroup
+    \colorlet{cb@saved}{.}%
+    \color#1{#2}%
+    \boxed{%
+      \color{cb@saved}%
+      #3%
+    }%
+  \endgroup
+}    
+
+
 %TODO command    
 \newcommand{\TODO}[1]{\large\textcolor{red}{\textbf{TODO: #1\\}}\normalsize}
+
+%New commands
+\newcommand{\jw}{j\omega}
     
-\title{Summary Template}
-\author{Joshua Näf}
+    
+\title{Control Systems II}
+\author{Joshua Näf \& Franz Büelmä}
 \date{}

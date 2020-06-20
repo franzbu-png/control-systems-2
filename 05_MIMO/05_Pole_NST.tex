@@ -1,0 +1,26 @@
+\subsection{Pole und Nullstellen} 
+    % Pole und Nullstellen sind im MIMO Fall etwas komplizierter.
+\subsubsection{Definition Matrix Minoren}
+        Minoren einer Matrix sind die Determinanten aller quadratischen Submatrizen. Die Submatrizen werden durch Streichen einzelner Zeilen und Spalten der Matrix gebildet.
+
+    \subsubsection{Polstellen von MIMO Systemen}
+        Die Pole von$P(s)$ sind die Nullstellen des kleinsten gemeinsamen Vielfachen (kgV) der Nennerpolynome aller Minoren von $P(S)$
+
+    \subsubsection{Nullstellen von MIMO Systemen}
+        Die Nullstellen von $P(s)$ sind die Nullstelle des grössten gemeinsamen Teilers (ggT) der Zähler der Minoren höchster Ordnung von $P(s)$ nach der Normalisierung, bei der alle Pole von $P(s)$ im Nenner stehen.
+        
+        Note: Nullstellen $s=\zeta_i$ sind nicht triviale Frequenzen, bei denen für ein spezifisches Eingangssignal $u(t)$ und spezifische Anfangsbedingungen $x(0)$ gilt: $y(t) = 0 \,\forall t$
+
+        D.h. die folgende Laplace Transformation erfüllt
+        \begin{align*}
+            (sI_{n\times n} -A)\cdot x - B \cdot u &= 0\\
+            C\cdot x + D \cdot u &= 0
+        \end{align*}
+        wobei nur eine nichttriviale Lösung besteht, falls die folgende Matrix singulär ist: 
+        \begin{equation*}
+            \det\begin{bmatrix}
+                (sI_{n\times n}- A) & -B \\
+                C& D
+            \end{bmatrix} = 0
+        \end{equation*}
+

@@ -1,0 +1,61 @@
+\subsection{Bsp}
+    Wir wollen $k_{p,\textnormal{max}}$ bestimmen, für welches folgende Strecke noch stabil bleibt.
+    \begin{equation*}
+        P(s) = -42\frac{(2-6.8)(s+6.8)}{s(s+5.8)(s^2+22.2s+126.9)}
+    \end{equation*}
+    Mithilfe Nyquist-Stabilitätskriterium:
+    \begin{itemize}
+        \item $\hat{\omega}$ bestimmen, wo $\operatorname{Im}\big(P(j\hat{\omega})\big)=0$      wird.
+            \begin{align*}
+                P(\jw)  &= \frac{42\omega^2+1946}{\omega^4-j\cdot28\omega^3-255\omega^2+j\cdot731\omega}\\
+                &= \frac{42\omega^2+1946}{\omega^4-255\omega^2+j\cdot(731\omega-28\omega^3)}\\
+                &\Rightarrow 731\hat{\omega}-28\hat{\omega}^3 \overset{!}{=} 0 \Rightarrow \hat{\omega} = \sqrt{\frac{731}{28}}
+            \end{align*}
+        
+        \item $|P(j\hat{\omega})|$ bestimmen.
+            \begin{equation*}
+                |P(j\hat{\omega})| = \left|\frac{42\hat{\omega}^2 + 1946}{\hat{\omega}^4-255\hat{\omega}^2}\right| \approx 0.51
+            \end{equation*}
+        
+        \item $k_{p,\textnormal{max}}$ bestimmen.
+            \begin{equation*}
+                k_{p,\textnormal{max}} = \frac{1}{0.51} = 1.96
+            \end{equation*}
+    \end{itemize}
+    Anhand Hurwitz-Kriterium:
+    \begin{itemize}
+        \item $T(s)$ als Funktion von $k_p$ bestimmen.
+            \begin{align*}
+                P(s) &= \frac{a(s)}{b(s)},\quad C(s) = k_p\\
+                L(s) &=  k_p\frac{a(s)}{b(s)}\\
+                T(s) &=  \frac{k_p\cdot a(s)}{b(s) + k_p\cdot a(s)}
+            \end{align*}
+            Für die Stabilität interessirt und also ob $b(s) + k_p\cdot a(s)$ alle NST in der linken Halbebene hat.
+            \begin{equation*}
+                b(s) + k_p\cdot a(s) = s^4 + 28s^3 + (255-42k_p)s^2 + 731s + 1946k_p
+            \end{equation*}
+        
+        \item Nun prüfen wir das Hurwitz-Kriterium:
+            \begin{align*}
+                H_4 &= 
+                \begin{bmatrix}
+                a_{n-1} & a_n & 0 & 0\\
+                a_{n-3} & a_{n-2} & a_{n-1} & a_n\\
+                a_{n-5} & a_{n-4} & a_{n-3} & a_{n-2}\\
+                a_{n-7} & a_{n-6} & a_{n-5} & a_{n-4}
+                \end{bmatrix}\\
+                &= 
+                \begin{bmatrix}
+                28 & 1 & 0 & 0\\
+                731 & 255-42k_p & 28 & 1\\
+                1946k_p &731 & 255-42k_p & 28\\
+                0   &   0   &   0   &   1946k_p
+                \end{bmatrix}
+            \end{align*}
+            Für die führenden Hauptminoren muss gelten: $d_i > 0$
+            \begin{gather*}
+                d_1 = 28 > 0,\quad  d_2 = (6409-1176k_p) > 0 \Rightarrow k_p < 5.45\\
+                d_3 = 4684979-2385320k_p \Rightarrow k_p < 1.96,\quad d_4 = d_3\cdot1946k_p 
+            \end{gather*}
+            Somit muss für Stabilität gelten: $k_p\in(0,\,1.96)$
+    \end{itemize}

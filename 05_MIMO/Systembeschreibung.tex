@@ -1,0 +1,50 @@
+\subsection{Systembeschreibung}
+    MIMO systeme haben mehrere Ein- und Ausgänge, d.h. $u(t) \in \mathbb{R}^m$, $y(t) \in \mathbb{R}^p$ und $x(t) \in \mathbb{R}^n$ dementsprechend sind Matrizen $B,\ C,\ D$ auf die Dimensionen angepasst werden.
+    dabei gilt für das I/O verhalten die selbe Herleitung, wie bei einem SISO System
+    \[s\cdot X(s) = A \cdot X(s) + B\cdot U(s)\]
+    \[\Rightarrow X(s) = (s\cdot I_{n\times n} - A) ^{-1}\cdot B \cdot U(s)\]
+    \[\Rightarrow Y(s) = \underbrace{(C\cdot(s\cdot I_{n\times n} -A)^{-1}\cdot B+D)}_{\text{P(s)}}\cdot U(s)\]
+    da $U(s)\in \mathbb{C}^m$ und $Y(s)\in \mathbb{C}^p$ wird $P(s)$ eine Matrix: 
+    \[P(s) = \begin{bmatrix}
+    P_{1,1}(s) & P_{1,2}(s) & \hdots & P_{1,m}(s) \\
+    P_{2,1}(s) & P_{2,2}(s) & \hdots & P_{2,m}(s) \\
+    \vdots & \vdots & \ddots & \vdots \\
+    P_{p,1}(s) & P_{p,2}(s) & \hdots & P_{p,m}(s)
+    \end{bmatrix}\]
+    Wobei jede Übertragungsfunktion $P_{i,j}(s):\ u_j \rightarrow y_i$
+    \[P_{i,j}(s) = \frac{b_{m,i,j}s^m+\dots + b_{1,i,j}s+ b_{0,i,j}}{s^n + a_{n-1,i.j}s^{n-1}+\dots + a_{1,i,j}s + a_{0,i,j}} = \frac{b_{i,j}(s)}{a_{i,j}(s)}\]
+    eine gebrochenrationale Funktion darstellt. 
+    Note: $P(s)$ beinhaltet nur steurbare und beobachtbare Teile des Systems.
+    
+\subsection{Sensitivitäten}
+    Wie auch im SISO Fall können wir die Sensitivitäten für ein MIMO System beschreiben:
+    \begin{equation*}
+    \colorboxed{red}{
+    \begin{aligned}
+        L(s) &= \frac{Y(s)}{E(s)} = P(s)\cdot C(s)\\
+        S(s) &= \frac{E(s)}{R(s)} =\big(I + L(s)\big)^{-1}\\
+        T(s) &= \frac{Y(s)}{R(s)} = L(s)\cdot \big(I + L(s)\big)^{-1}
+    \end{aligned}
+    }
+    \end{equation*}
+    
+\subsection{Stabilität, Steuerbarkeit und Beobachtbarkeit}
+    Die Analyse von MIMO Systemen ist identisch zu derjenigen von SISO Systemen. 
+    \subsubsection{Stabilität nach Lyapunov}
+    \textbf{asymptotisch stabil} nach Lyapunov: 
+    Alle Eigenwerte von A haben negativen Realteil, $Re(\lambda_i) < 0$
+    
+    \textbf{stabil} nach Lyapunov:
+    Mindestens ein Eigenwert $\lambda_k$ von $A$ hat Realteil $Re(\lambda_k) = 0$ und alle anderen Eigenwerte haben negative Realteile.
+    
+    \textbf{instabil}nach Lyapunov:
+    Mindestens ein Eigenwert $\lambda_k$ von $A$ hat einen positiven Realteil $Re(\lambda_k) > 0$
+    
+    \subsubsection{Steuerbarkeit}
+        Das System $\{A,\ B,\ C,\ D\}$ ist vollständig steuerbar, falls die Steuerbarkeitsmatrix $\Re_n$ vollen Rang $n$ hat
+    \[\Re_n = [B,\ AB,\ \dots,\ A^{n-1}B]\in \mathbb{R}^{n\times(n\cdot m)}\]
+    
+    \subsubsection{Beobachtbarkeit}
+        Das System $\{A,\ B,\ C,\ D\}$ ist vollständig steuerbar, falls die Beobachtbarkeitsmatrix$\mathcal{O}_n$ vollen Rang $n$ hat
+        \[\mathcal{O}_n = \begin{bmatrix} C\\ CA\\ \vdots\\ CA^{n-1}\end{bmatrix}\in \mathbb{R}^{(n\cdot p)\times }\]
+        

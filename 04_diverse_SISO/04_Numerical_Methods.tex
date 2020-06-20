@@ -1,0 +1,27 @@
+Mit numerischen Verfahren kann man für fixe Regelstrukturen (z.B: PI) ein Optimierungsproblem lösen, um die Parameter $k_p,\, T_i$ zu bestimmen. Dazu stellt man eine Kostenfunktion $J(k_p,T_i)$ auf, welche man durch die Wahl der optimalen Pramater $k_p^\star$ und $T_i^\star$ minimieren will.
+
+\textbf{Beispiele für Gütekriterien:}
+\begin{itemize}
+    \item kumulativer Fehler über den quadrieten Fehler:
+        \begin{equation*}
+            g_1 = \int_0^\infty e^2(t)dt
+        \end{equation*}
+    
+    \item Der maximale Überchuss von $y(t)$:
+        \begin{equation*}
+            g_2 = \max_{t\in[0,\infty)}(y(t)-1)
+        \end{equation*}
+    
+    \item Robustheit über Minimum return difference $\mu$\textsubscript{min}
+        \begin{equation*}
+            g_3 = 1 -\mu_{\textnormal{min}} = 1 - \max_{\omega\in[0,\infty)}|1 + L(\jw)|
+        \end{equation*}
+\end{itemize}
+
+Die Kostenfunktion ist daher $J(k_p,T_i) = \kappa_1\cdot g_1 + \kappa_2\cdot g_2 + \kappa_3\cdot g_3$. Das resultierende Optimierungsproblem 
+\begin{equation*}
+    \min_{k_p,T_i}J(k_p,T_i)    
+\end{equation*}
+kann in MATLAB mit \texttt{fminsearch} gelöst werden, wobei $\kappa_{(\cdot)}$ ein Mass für die Wichtigkeit einer Grösse $g_{(\cdot)}$ sind. Je Grösser ein $\kappa_{(\cdot)}$ ist, desto mehr wird das dazugehörige $g_{(\cdot)}$ bestraft. Dadurch werden die anderen Kriterien, relativ zum höher gewichtetn Kriterium, weniger gewichtet.
+
+

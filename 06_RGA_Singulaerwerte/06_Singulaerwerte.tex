@@ -1,0 +1,28 @@
+\subsection{Singulärwerte}
+    Im folgenden werden Eigenschaften zur linearen Abbildung\[y= M \cdot u,\ u \in \mathbb{C}^m,\ y\in\mathbb{C}^p,\ M\in\mathbb{C}^{p\times m}\]
+    beschrieben. Insbesondere erfüllt der Ausgang $y$ folgende wichtige Eigenschaft:\[\sigma_{\textnormal{min}}(M)\leq\frac{||y||}{||u||}\leq\sigma_{\textnormal{max}}(M),\]
+    wobei $||.||$ die euklische Norm ist und 
+    \[\sigma_i(M)=\sqrt{\lambda_i(\overline{M}^T\cdot M)}>0,\]
+
+    Die Singulärwerte der Matrix $M$ sind.
+
+    $\overline{M}^T$ sit die Transponierte der komplex-Konjugierten von M. Die Singulärwertzerlegung (SVD) der Matrix $M$ lautet:
+    \[M = U\cdot\Sigma V^T,\]
+    Wobei $\Sigma$ die \textbf{Singulärwerte $\sigma_i$ auf der Hauptdiagonale} hat.
+    $U$ und $V^T$ sind unitäre (längenerhaltende) Transformationsmatrizen:
+    \[U\cdot U^T = V\cdot V^T = I\]
+    \subsubsection{Vorgehen:}
+        \begin{enumerate}
+            \item \textbf{Singulärwerte bestimmen:}
+                \[\sigma_i =\sqrt{\lambda_i(M^TM)}=\sqrt{\lambda_i(MM^T)}\]
+            \item \textbf{$\Sigma \in                    \mathbb{R}^{P\times m}$ konstruieren}
+                \[\Sigma = \left[\begin{array}{c c c | c}
+                \sigma_1 & 0 & \dots  & 0 \\
+                0&\ddots & 0 & \vdots \\
+                \vdots & 0 & \sigma_r & 0 \\ \hline
+                0 & \dots & 0 & 0              \end{array}\right]\ \sigma_1 \geq \sigma_2 \geq \dots \geq \sigma_r \geq 0 \] 
+            \item $v_i$: Normalisierte Eigenvektoren     von $M^TM \Rightarrow$                   input-Richtungen
+            \item $u_i$: Normalisierete Eigenvektoren von $MM^T
+                \Rightarrow $ output-Richtungen
+        \end{enumerate}
+note: Falls $\sigma_i \neq 0$ geht auch: $u_i = \frac{1}{\sigma_i}Mv_i$
