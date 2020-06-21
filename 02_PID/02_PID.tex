@@ -1,4 +1,26 @@
 \subsection{PID - Recap}
+    \subsubsection{Ziegler-Nichols}
+    \begin{equation*}
+        P(s) \approx \frac{k}{\tau\cdot s + 1}\cdot e^{-T\cdot s}, \quad \frac{T}{T+\tau} < 0.3
+    \end{equation*}
+      $\omega^*$: Frequenz, bei der Phase $= -\pi$.
+        \begin{equation*}
+            \boxed{|k_p^* \cdot P(j\omega^*)| \overset{!}{=} 1} \hspace{3mm}
+            \boxed{\angle k_p^* \cdot P(j\omega^*)\overset{!}{=}-\pi} \hspace{3mm}
+            \boxed{T^* =\frac{2\pi}{\omega^*}}
+        \end{equation*}
+        \begin{center}
+        {\renewcommand{\arraystretch}{1.5}
+            \begin{tabular}{l r r r}
+            Regler & $k_p$ & $T_i$ & $T_d$ \\
+                 \hline
+                P & $0.5\cdot k_p^*$ & $\infty \cdot T^*$ & $0 \cdot T^*$ \\
+                PI & $0.45\cdot k_p^*$ & $0.85\cdot T^*$ & $0 \cdot T^*$\\
+                PD & $0.55 \cdot k_p^* $& $\infty \cdot T^*$ &  $0.15\cdot T^*$\\
+                PID & $0.6\cdot k_p^*$ & $0.5 \cdot T^*$ & $0.125 \cdot T^*$\\
+            \end{tabular}}
+        \end{center}
+
 \subsection{PID - Tuning}
     \subsubsection{\r{A}ström-Hägglund Verfahren}
         Man spezifiziert seinen Regler anhand $k_p^*, T^*, |P(0)|$. Zusätzlich kann man zwischen einem aggressiven Regler ($\mu_{min} \approx 0.5$) oder einem robusten Regler ($\mu_{min} \approx 0.7$) auswählen.
@@ -73,7 +95,7 @@
     \[P(s) = P_r(S)\cdot e^{-Ts}\]
     \begin{figure}[H]
         \centering
-        \includegraphics[width = 0.7\linewidth]{images/02/Smithpredictor.jpg}
+        \includegraphics[width = 0.55\linewidth]{images/02/Smithpredictor.jpg}
         \caption{Regelstruktur eines Smith Predictors}
     \end{figure}
     
@@ -98,7 +120,7 @@
     Schätzungsfehler von der Totzeit $T$ kann grosse Auswirkungen auf das Systemverhalten haben. Bei einem Schätzfehler von $\pm 20\%$ kann immer noch eine schnelle und robuste Systemantwort ohne übermässige Abweichungen vom Referenzsystem erzielt werden.
     \begin{figure}[H]
         \centering
-        \includegraphics[width = 0.9\linewidth]{images/02/est_error_hat_T.jpg}
+        \includegraphics[width = 0.55\linewidth]{images/02/est_error_hat_T.jpg}
         \caption{Auswirkung Schätzungsfehler von $\hat{T}$ auf die Sprungantwort}
     \end{figure}
     

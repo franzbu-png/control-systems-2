@@ -6,11 +6,11 @@
         \includegraphics[width = 0.7\linewidth]{images/04/kaskad_sys.jpeg}
         \caption{Kaskadiere Regelstruktur. index $s$ für slow und $f$ für schnell.}
     \end{figure}
+    Um die Bandbreite des schnellen Systems auszunutzen wird für $C_f(s)$ oftmals kein Integrator verwendet (verlangsamt). Der Integrator wird in $C_s(s)$ integriert um einen statischen Nachlauffehler zu eliminieren.
     \begin{align*}
         T_{f}(s) &= \frac{L_f(s)}{1 + L_f(s)} = \frac{C_f(s)\cdot P_f(s)}{1 + C_f(s)\cdot P_f(s)}\\
         T_{s}(s) &= \frac{L_s(s)}{1 + L_s(s)} = \frac{C_s(s)\cdot T_{f}(s)\cdot P_s(s)}{1 + C_s(s)\cdot T_f(s) \cdot P_s(s)}
     \end{align*}
-    Um die Bandbreite des schnellen Systems auszunutzen wird für $C_f(s)$ oftmals kein Integrator verwendet (verlangsamt). Der Integrator wird in $C_s(s)$ integriert um einen statischen Nachlauffehler zu eliminieren.
     
     \subsubsection{Bsp}
         Masse auf einem Wagen mit einem Feder Dämpfer System an der Wand befestigt.
