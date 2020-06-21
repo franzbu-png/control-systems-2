@@ -14,13 +14,10 @@
         T(s) = \frac{k_p\cdot C(s)\cdot P(s)}{1 + k_p\cdot C(s)\cdot P(s)}
     \end{equation*}
     Die Pole von $T(s)$ sind also
-    \begin{equation*}
-        1 + k_p\cdot L(s) = 0 \quad\textnormal{mit } L(s) = \frac{b(s)}{a(s)} 
-    \end{equation*}
-    Also gilt:
-    \begin{equation*}
-        a(s) + k_p\cdot b(s) =: p(s,k_p)
-    \end{equation*}
+    \begin{align*}
+        1 + k_p\cdot L(s) &= 0 \quad\textnormal{mit } L(s) = \frac{b(s)}{a(s)}\\ 
+        a(s) + k_p\cdot b(s) &=: p(s,k_p)
+    \end{align*}
     Die Schar der NST von $p(s,k_p)$ repräsentiert die Wurzelortskurven. Das polynom $p(s,k_p)$ hat Ordnung $n$.
     
     In den Extremfällen gilt:
@@ -43,6 +40,7 @@
                 \end{equation*}
         \end{enumerate}
         
+    \subsubsection{Zugehörigkeitstest}
         Man kann testen ob ein Punkt $z\in\mathbb{C}$ auf der Wurzelortskurven liegt, indem man ihn in diese Gleichung einsetzt:
         \begin{equation*}
         \colorboxed{red}{
