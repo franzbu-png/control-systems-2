@@ -5,7 +5,7 @@
 \maketitle
 \begin{center}
     \parbox{0.5\linewidth}{\begin{center}
-        This summary has been written based on the Lecture 151-0590-00L Regelungstechnik II by Prof. Dr. Guzzella (FS20) and the weekly theory sheets provided by C. Küttel. There is no guarantee for completeness and/or correctness regarding the content of this summary. Use it at your own discretion
+        This summary has been written based on the Lecture 151-0590-00L Regelungstechnik II by Prof. Dr. Guzzella (FS20) and the weekly theory sheets provided by C. Küttel. There is no guarantee for completeness and/or correctness regarding the content of this summary. Use it at your own discretion.
     \end{center}}
 \end{center}
 \newpage
@@ -18,13 +18,19 @@
 
 \begin{multicols*}{2}
 \section{MATLAB Cheat Sheet}
-        \input{01_MATLAB/01_ML_Commands}
-
+        \input{01_MATLAB_Recap/01_ML_Commands}
+        
 \end{multicols*}
 \begin{multicols*}{3}
+
+\section{Recap}
+        \input{01_MATLAB_Recap/01_Recap}
+        
+\vfill\null\newpage        
 \section{PID}
     \input{02_PID/02_PID}
 
+\vfill\null\newpage        
 \section{Spezifikation der Sensitivität}
     \input{03_Sensitivity/03_Multiplicative_Sens}
     \input{03_Sensitivity/03_Robuste_Regelgüte}
@@ -97,5 +103,7 @@
     \input{11_LTR/11_LTR}
     
 \end{multicols*}     
+
+\includepdf[pages=-, nup=2x1, delta= -10mm -10mm, addtotoc={1, section, 1, {Appendix A}, appendix}]{resources/Guzzella_RT1_Appendix_A.pdf}
 
 \end{document}

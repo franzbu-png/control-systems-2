@@ -1,34 +1,12 @@
-\subsection{PID - Recap}
-    \subsubsection{Ziegler-Nichols}
-    \begin{equation*}
-        P(s) \approx \frac{k}{\tau\cdot s + 1}\cdot e^{-T\cdot s}, \quad \frac{T}{T+\tau} < 0.3
-    \end{equation*}
-      $\omega^*$: Frequenz, bei der Phase $= -\pi$.
-        \begin{equation*}
-            \boxed{|k_p^* \cdot P(j\omega^*)| \overset{!}{=} 1} \hspace{3mm}
-            \boxed{\angle k_p^* \cdot P(j\omega^*)\overset{!}{=}-\pi} \hspace{3mm}
-            \boxed{T^* =\frac{2\pi}{\omega^*}}
-        \end{equation*}
-        \begin{center}
-        {\renewcommand{\arraystretch}{1.5}
-            \begin{tabular}{l r r r}
-            Regler & $k_p$ & $T_i$ & $T_d$ \\
-                 \hline
-                P & $0.5\cdot k_p^*$ & $\infty \cdot T^*$ & $0 \cdot T^*$ \\
-                PI & $0.45\cdot k_p^*$ & $0.85\cdot T^*$ & $0 \cdot T^*$\\
-                PD & $0.55 \cdot k_p^* $& $\infty \cdot T^*$ &  $0.15\cdot T^*$\\
-                PID & $0.6\cdot k_p^*$ & $0.5 \cdot T^*$ & $0.125 \cdot T^*$\\
-            \end{tabular}}
-        \end{center}
 
 \subsection{PID - Tuning}
     \subsubsection{\r{A}ström-Hägglund Verfahren}
-        Man spezifiziert seinen Regler anhand $k_p^*, T^*, |P(0)|$. Zusätzlich kann man zwischen einem aggressiven Regler ($\mu_{min} \approx 0.5$) oder einem robusten Regler ($\mu_{min} \approx 0.7$) auswählen.
-        
-        \[\{k_p^*,\ T^*,\ |P(0)|,\ \mu_{min}\} \rightarrow \{k_p,\ T_i,\ T_d\}\]
+        Spezifikation des Reglers anhand von $\{k_p^*, T^*, |P(0)|\}$. Zusätzliche Auswahl zwischen agressiven/robusten Regler ($\mu_{\textnormal{min}} \approx 0.5$/ $\mu_{\textnormal{min}} \approx 0.7$)
+        % Man spezifiziert seinen Regler anhand $k_p^*, T^*, |P(0)|$. Zusätzlich kann man zwischen einem aggressiven Regler ($\mu_{\textnormal{min}} \approx 0.5$) oder einem robusten Regler ($\mu_{\textnormal{min}} \approx 0.7$) auswählen.
+        \[\{k_p^*,\ T^*,\ |P(0)|,\ \mu_{\textnormal{min}}\} \rightarrow \{k_p,\ T_i,\ T_d\}\]
             \begin{center}
             \begin{tabular}{c|c c c|c c c}
-                & & $\mu_{min} = 0.7$ & & &  $\mu_{min} = 0.5$ & \\ 
+                & & $\mu_{\textnormal{min}} = 0.7$ & & &  $\mu_{\textnormal{min}} = 0.5$ & \\ 
                 x & $\alpha_{0,x}$ & $\alpha_{1,x}$ & $\alpha_{2,x}$ & $\alpha_{0,x}$ & $\alpha_{1,x}$ & $\alpha_{2,x}$ \\ \hline
                 $k_p/k_p^*$  & 0.053 & 2.90 & -2.60 & 0.13 & 1.90 & -1.30 \\
                 $Ti/T^*$ & 0.90 & -4.40 & 2.70 & 0.90 & -4.40 & 2.70\\ 
@@ -38,7 +16,7 @@
 
         
             \begin{tabular}{c|c c c|c c c}
-                & & $\mu_{min} = 0.7$ & & &  $\mu_{min} = 0.5$ & \\ 
+                & & $\mu_{\textnormal{min}} = 0.7$ & & &  $\mu_{\textnormal{min}} = 0.5$ & \\ 
                 x &
                 $\alpha_{0,x}$ & $\alpha_{1,x}$ & $\alpha_{2,x}$ & $\alpha_{0,x}$ & $\alpha_{1,x}$ & $\alpha_{2,x}$ \\ \hline
                 $k_p/k_p^*$  & 0.33 & -0.31 & -1.00 & 0.72 & -1.60 & 1.20 \\
@@ -120,7 +98,7 @@
     Schätzungsfehler von der Totzeit $T$ kann grosse Auswirkungen auf das Systemverhalten haben. Bei einem Schätzfehler von $\pm 20\%$ kann immer noch eine schnelle und robuste Systemantwort ohne übermässige Abweichungen vom Referenzsystem erzielt werden.
     \begin{figure}[H]
         \centering
-        \includegraphics[width = 0.55\linewidth]{images/02/est_error_hat_T.jpg}
+        \includegraphics[width = 0.8\linewidth]{images/02/est_error_hat_T.jpg}
         \caption{Auswirkung Schätzungsfehler von $\hat{T}$ auf die Sprungantwort}
     \end{figure}
     

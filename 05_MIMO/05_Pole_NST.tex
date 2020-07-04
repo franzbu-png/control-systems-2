@@ -2,9 +2,18 @@
     % Pole und Nullstellen sind im MIMO Fall etwas komplizierter.
 \subsubsection{Definition Matrix Minoren}
         Minoren einer Matrix sind die Determinanten aller quadratischen Submatrizen. Die Submatrizen werden durch Streichen einzelner Zeilen und Spalten der Matrix gebildet.
+        
+        \begin{equation*}
+            A = 
+            \begin{bmatrix} 
+                A_{11} & A_{12} & A_{13}\\
+                A_{21} & A_{22} & A_{23}\\ 
+            \end{bmatrix}
+        \end{equation*}
+        Die Minoren der Matrix $A$ sind:\\ $A_{11},\,A_{12},\,A_{13},\,A_{21},\,A_{22},\,A_{23},\,A_{31},\,A_{32},\,A_{33}, \\ \,A_{11}A_{22}-A_{21}A_{12},\,A_{11}A_{23}-A_{21}A_{13},\,A_{12}A_{23}-A_{22}A_{13}$.
 
     \subsubsection{Polstellen von MIMO Systemen}
-        Die Pole von$P(s)$ sind die Nullstellen des kleinsten gemeinsamen Vielfachen (kgV) der Nennerpolynome aller Minoren von $P(S)$
+        Die Pole von $P(s)$ sind die Nullstellen des kleinsten gemeinsamen Vielfachen (kgV) der Nennerpolynome aller Minoren von $P(s)$
 
     \subsubsection{Nullstellen von MIMO Systemen}
         Die Nullstellen von $P(s)$ sind die Nullstelle des grössten gemeinsamen Teilers (ggT) der Zähler der Minoren höchster Ordnung von $P(s)$ nach der Normalisierung, bei der alle Pole von $P(s)$ im Nenner stehen.

@@ -1,8 +1,13 @@
 \subsection{Singulärwerte}
     Im folgenden werden Eigenschaften zur linearen Abbildung\[y= M \cdot u,\ u \in \mathbb{C}^m,\ y\in\mathbb{C}^p,\ M\in\mathbb{C}^{p\times m}\]
-    beschrieben. Insbesondere erfüllt der Ausgang $y$ folgende wichtige Eigenschaft:\[\sigma_{\textnormal{min}}(M)\leq\frac{||y||}{||u||}\leq\sigma_{\textnormal{max}}(M),\]
+    beschrieben. Insbesondere erfüllt der Ausgang $y$ folgende wichtige Eigenschaft:
+    \begin{equation*}
+    \colorboxed{red}{\sigma_{\textnormal{min}}(M)\leq\frac{||y||}{||u||}\leq\sigma_{\textnormal{max}}(M),}
+    \end{equation*}
     wobei $||.||$ die euklische Norm ist und 
-    \[\sigma_i(M)=\sqrt{\lambda_i(\overline{M}^T\cdot M)}>0,\]
+    \begin{equation*}
+        \colorboxed{red}{\sigma_i(M)=\sqrt{\lambda_i(\overline{M}^T\cdot M)}>0,}
+    \end{equation*}
 
     Die Singulärwerte der Matrix $M$ sind.
 
@@ -11,10 +16,11 @@
     Wobei $\Sigma$ die \textbf{Singulärwerte $\sigma_i$ auf der Hauptdiagonale} hat.
     $U$ und $V^T$ sind unitäre (längenerhaltende) Transformationsmatrizen:
     \[U\cdot U^T = V\cdot V^T = I\]
+    note: Die Anzahl Singulärwerte eines Systems mit $q$-Eingängen und $P$-Ausgängen ist: $min(p,q)$.
     \subsubsection{Vorgehen:}
         \begin{enumerate}
             \item \textbf{Singulärwerte bestimmen:}
-                \[\sigma_i =\sqrt{\lambda_i(M^TM)}=\sqrt{\lambda_i(MM^T)}\]
+                \[\sigma_i =\sqrt{\lambda_i(\overline{M}^TM)}=\sqrt{\lambda_i(M\overline{M}^T)}\]
             \item \textbf{$\Sigma \in                    \mathbb{R}^{P\times m}$ konstruieren}
                 \[\Sigma = \left[\begin{array}{c c c | c}
                 \sigma_1 & 0 & \dots  & 0 \\

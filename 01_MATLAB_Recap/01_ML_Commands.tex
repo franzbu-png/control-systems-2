@@ -1,11 +1,13 @@
 \begin{center}
     \def\arraystretch{1.5}
-    \begin{tabular}{p{5cm}|p{8cm}}
+    \begin{tabular}{p{5cm}|p{8.5cm}}
         \textbf{Command}    &   \textbf{Description}\\
         \hline
-        \texttt{bode(SYS)}  &  Draws the Bode plot of the dynamic system SYS. The frequency range and number of points are chosen automatically.\\
+        \texttt{bode(SYS)}  &  Draws the Bode plot of the dynamic system SYS.\\
         
         \texttt{[MAG,PHASE] = bode(SYS,W) [MAG,PHASE,W] = bode(SYS)} & Return the response magnitudes and phases in degrees (along with the frequency vector W if unspecified).  No plot is drawn on the screen. \\
+        
+        \texttt{W = logspace(-2,3,1e3)} & $10^{-2} < w < 10^3$ mit 1000 log-Werten\\
         
         \texttt{nyquist(SYS)}  &  Draws the Nyquist plot of the dynamic system SYS. \\
         
@@ -21,7 +23,7 @@
         
         \texttt{s = tf('s')}  & Specifies the transfer function H(s) = s (Laplace variable). \\
         
-        \texttt{SYS = tf(NUM,DEN, 'InputDelay', T)} & Creates a continuous-time transfer function SYS with numerator NUM and denominator DEN and optinal time delay $T$.\\
+        \texttt{SYS = tf(NUM,DEN, \textcolor{blue}{Ts}, 'InputDelay', T)} & Creates a continuous-time transfer function SYS with numerator NUM and denominator DEN and optinal time delay $T$. (For discrete-time models add a sample time $T_s$)\\
         
         \texttt{P = tf(sys)}  & Converts any dynamic system SYS to the transfer function representation. \\
         
@@ -36,7 +38,7 @@
         \texttt{Z = tzero(SYS,TOL)}  &  Computes the invariant zeros of the dynamic system SYS. For state-space models with matrices A,B,C,D,E (= I), the invariant zeros are the complex values s for which the rank of the matrix $\begin{bmatrix} A -sE & B\\ C & D\end{bmatrix}$ drops below its normal value. For minimal realizations, this coincides with the transmission zeros of SYS (values of s for which its transfer function drops rank).\\ 
         
     \end{tabular}
-    \begin{tabular}{p{5cm}|p{8cm}}
+    \begin{tabular}{p{5cm}|p{8.5cm}}
         \textbf{Command}    &   \textbf{Description}\\
         \hline
         \texttt{[NUM,DEN] = tfdata(SYS)} & Returns the numerator(s) and denominator(s) of the transfer function SYS. \\
@@ -44,6 +46,8 @@
         \texttt{[Z,P,K] = tf2zp(NUM,DEN)} & Finds the zeros, poles, and gains from a transferfunction in the form of $\displaystyle H(s) = K\cdot\frac{(s-z1)(s-z2)\dots(s-zn)}{(s-p1)(s-p2)\dots(s-pn)}$\\
         
         \texttt{[Z,P,K] = zpkdata(SYS)} & Returns the zeros, poles, and gain for each I/O channel of the dynamic system SYS.\\
+        
+        \texttt{K = dcgain(SYS)} & Computes the steady-state (D.C. or low frequency) gain of the dynamic system SYS \big($P(j\cdot0)$\big)\\
         
         \texttt{eye(M)/ eye(M,N)/ eye(size(A))}  &  M-by-M/M-by-N/siz(A) matrix with 1's on the diagonal and zeros elsewhere. \\
         
@@ -63,7 +67,7 @@
         
         \texttt{L = series(C,P)}  & Connects the input/ouput models $C$ and $P$ in series. \\
         
-        \texttt{M = feedback(M1,M2)}  &  Computes a closed-loop model M (assumes negative feedback: for positive add ",+1")\\
+        \texttt{M = feedback(M1,M2)}  & $(M1,M2) = (1,L) \Rightarrow S(s)$ and  $(M1,M2) = (L,1) \Rightarrow T(s)$. Computes a closed-loop model M (assumes negative feedback: for positive add ",+1")\\
         
         $\mathtt{\mu_{\textnormal{min}} = min( abs(bode(1 + L)))}$  &  Computes the minimum return difference of a given open loop gain $L$\\
         
@@ -75,7 +79,9 @@
         
         \texttt{SYSD = c2d(SYSC,TS,METHOD)}  &  Computes a discrete-time model SYSD with sample time TS that approximates the continuous-time model SYSC (method = zoh, foh, impulse, tustin,...)\\
         
-        \texttt{SYSC = d2c(SYSD,METHOD)} & Computes a continuous-time model SYSC that approximates the discrete-time model SYSD. (method = as above)
+        \texttt{SYSC = d2c(SYSD,METHOD)} & Computes a continuous-time model SYSC that approximates the discrete-time model SYSD. (method = as above)\\
+        
+        \texttt{Ki\_lqri = -K\_tilde(:,n+1:end)} & Extraction of $K_I$ from $\Tilde{K}$
     \end{tabular}
 \end{center}
 

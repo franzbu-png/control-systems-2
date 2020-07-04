@@ -27,7 +27,7 @@
     \end{aligned}
     }
     \end{equation*}
-    Es gilt die Identität: $G_1\big(I-G_2G_1\big)^{-1} = \big(I - G_1G_2\big)G_1$
+    Es gilt die Identität: $G_1\big(I-G_2G_1\big)^{-1} = \big(I - G_1G_2\big)^{-1}G_1$
     
 \subsection{Stabilität, Steuerbarkeit und Beobachtbarkeit}
     Die Analyse von MIMO Systemen ist identisch zu derjenigen von SISO Systemen. 
@@ -42,10 +42,14 @@
     Mindestens ein Eigenwert $\lambda_k$ von $A$ hat einen positiven Realteil $Re(\lambda_k) > 0$
     
     \subsubsection{Steuerbarkeit}
-        Das System $\{A,\ B,\ C,\ D\}$ ist vollständig steuerbar, falls die Steuerbarkeitsmatrix $\Re_n$ vollen Rang $n$ hat
-    \[\Re_n = [B,\ AB,\ \dots,\ A^{n-1}B]\in \mathbb{R}^{n\times(n\cdot m)}\]
+        Das System $\{A,\ B,\ C,\ D\}$ ist vollständig steuerbar, falls die Steuerbarkeitsmatrix $\mathcal{R}_n$ vollen Rang $n$ hat
+    \[\mathcal{R}_n = [B,\ AB,\ \dots,\ A^{n-1}B]\in \mathbb{R}^{n\times(n\cdot m)}\]
     
     \subsubsection{Beobachtbarkeit}
-        Das System $\{A,\ B,\ C,\ D\}$ ist vollständig steuerbar, falls die Beobachtbarkeitsmatrix$\mathcal{O}_n$ vollen Rang $n$ hat
-        \[\mathcal{O}_n = \begin{bmatrix} C\\ CA\\ \vdots\\ CA^{n-1}\end{bmatrix}\in \mathbb{R}^{(n\cdot p)\times }\]
+        Das System $\{A,\ B,\ C,\ D\}$ ist vollständig steuerbar, falls die Beobachtbarkeitsmatrix $\mathcal{O}_n$ vollen Rang $n$ hat
+        \[\mathcal{O}_n = \begin{bmatrix} C\\ CA\\ \vdots\\ CA^{n-1}\end{bmatrix}\in \mathbb{R}^{(n\cdot p)\times n}\]
+    \subsubsection{System minimalisierung}
+        Zustandsraummodell ist nur dann eine minimalerealisierung, wenn es vollständig Steuerbar und Beobachtbar ist.
+        Minimale Systemordnung := #Pole, Pole kann man bei MIMO-systemen nur mit Nullstellen kürzen falls auf den selben Input output pfad wirken.
+        
         
