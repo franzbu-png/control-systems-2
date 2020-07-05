@@ -15,7 +15,7 @@
         
         \texttt{sys = ss(A,B,C,D)}  & Creates an object SYS representing the continuous-time state-space model \\
         
-        \texttt{(E =) [V,D] = eig(A)}  &  Produces a diagonal matrix D of eigenvalues and a full matrix V whose columns are the corresponding eigenvectors so that A*V = V*D. (Produces a column vector E containing the eigenvalues of a square matrix A.)\\
+        \texttt{(E =) [V,D] = eig(A)}  &  Produces a diagonal matrix D of eigenvalues and a full matrix V whose columns are the corresponding eigenvectors so that A*V = V*D. (Column vector E containing the Eigval of a matrix A.)\\
         
         \texttt{co = ctrb(A,B) (= ctrb(SYS))}  & Returns the controllability matrix $[B AB A^2B ...]$.  \\
         
@@ -36,6 +36,9 @@
         \texttt{[Z,G] = zero(SYS)} & Computes the zeros Z and gain G of the single-input, single-output dynamic system SYS.\\
         
         \texttt{Z = tzero(SYS,TOL)}  &  Computes the invariant zeros of the dynamic system SYS. For state-space models with matrices A,B,C,D,E (= I), the invariant zeros are the complex values s for which the rank of the matrix $\begin{bmatrix} A -sE & B\\ C & D\end{bmatrix}$ drops below its normal value. For minimal realizations, this coincides with the transmission zeros of SYS (values of s for which its transfer function drops rank).\\ 
+        
+        \texttt{Ydb = mag2db(Y)} & Converts magnitude data Y into dB values. (db2mag analog)
+ 
         
     \end{tabular}
     \begin{tabular}{p{5cm}|p{8.5cm}}
@@ -61,7 +64,7 @@
         
         \texttt{[U,S,V] = svd(X)}  &  Produces a diagonal matrix S, of the same dimension as X and with nonnegative diagonal elements in decreasing order, and unitary matrices U and V so that $X = U\cdot S\cdot V^\top$.\\
         
-        \texttt{FRESP = evalfr(SYS,X)}  & Evaluates the transfer function of the continuous- or discrete-time linear model SYS at the complex number S=X or Z=X. (Eval System, then plug it into svd)\\
+        \texttt{FRESP = evalfr(SYS,X)}  & Evaluates the transfer function of the continuous- or discrete-time linear model SYS at the complex number S=X or Z=X. \textbf{X = j$\cdot$omega} (Eval System, then plug it into svd)\\
         
         \texttt{SimOut = sim('MODEL', PARAMETERS)}  & Simulates your Simulink model, where 'PARAMETERS' represents a list of parameter name-value pairs. \\
         

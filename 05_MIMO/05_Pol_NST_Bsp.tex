@@ -19,8 +19,7 @@
         \begin{gather*}
             T_1(s) = \frac{K_1\frac{2}{s+1}}{1 + K_1\frac{2}{s+1}} = \frac{2K_1}{s +(2K_1 + 1)},\\
             T_2(s) = \frac{K_2\frac{1}{s+1}}{1 + K_2\frac{1}{s+1}} = \frac{K_2}{s + (K_2 + 1)}\\
-            \Rightarrow 2K_1 + 1 > 0, \qquad K_2 + 1 > 0\\
-            \Rightarrow K_1 > -\frac{1}{2},\, K_2 > -1,\, \textnormal{bzw:}\, K_i > 0
+            \Rightarrow 2K_1 + 1 > 0, \, K_2 + 1 > 0;\ \, \Rightarrow K_1 > -\frac{1}{2},\, K_2 > -1,\, \textnormal{bzw:}\, K_i > 0
         \end{gather*}
         
     \subsubsection{Bsp}
@@ -36,14 +35,12 @@
         
         Für die Pole bestimmen wir zuerst die Minoren:
         \begin{gather*}
-            \frac{1}{s+1},\qquad 0,\qquad \frac{s-1}{(s+1)(s+2)}\\
-            \frac{-1}{s-1},\qquad \frac{1}{s+2},\qquad \frac{1}{s+2}\\
+            \frac{1}{s+1},\quad 0,\quad \frac{s-1}{(s+1)(s+2)},\quad\frac{-1}{s-1},\quad \frac{1}{s+2},\quad \frac{1}{s+2}\\
             \frac{1}{(s+1)(s+2)},\qquad \frac{2}{(s+1)(s+2)},\qquad \frac{(-1)(s-1)}{(s+1)(s+2)^2}
         \end{gather*}
         KGV\textsubscript{Nenner} ist daher:
         \begin{gather*}
-            (s+1)(s+2)^2(s-1)\\
-            \pi_1 = -1,\quad \pi_{2,3} = -2,\quad \pi_4 = 1
+            (s+1)(s+2)^2(s-1) \Rightarrow \pi_1 = -1,\, \pi_{2,3} = -2,\, \pi_4 = 1
         \end{gather*}
         
         Um die (Übertragungs-)Nullstellen des Systems zu bestimmen erweitern wir die Minoren höchster Ordnung (Von den ``grössten" Determinanten):
@@ -51,11 +48,8 @@
             \frac{\textcolor{red}{(s+2)(s-1)}}{(s+1)(s+2)\textcolor{red}{^2(s-1)}},\quad \frac{2\textcolor{red}{(s+2)(s-1)}}{(s+1)(s+2)\textcolor{red}{^2(s-1)}},\quad \frac{(-1)(s-1)\textcolor{red}{^2}}{(s+1)(s+2)^2\textcolor{red}{(s-1)}}
         \end{equation*}
         
-        GGT\textsubscript{Zähler} ist somit:
-        \begin{equation*}
-            (s-1) \Rightarrow \zeta_1 = 1
-        \end{equation*}
-        
+        GGT\textsubscript{Zähler} ist somit: $(s-1) \Rightarrow \zeta_1 = 1$
+            
         \textit{Q: Was ist die minimale Ordnung einer internen Beschreibung?}
         
         A: Es wurden 4 Pole gefunden, somit besitzt eine interne Beschreibung des Systems mindestens 4. Ordnung. \textbf{Bemerkung:} Ein Mehrgrössensystem kann Pole und NST bei den gleichen Frequenzen haben, ohne dass sich diese kürzen, da es darauf ankommt, ob die dieselbe Frequenz \textit{und} Richtung haben.

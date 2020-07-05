@@ -29,11 +29,11 @@
         \caption{Alternative Dastellung des LQGI Reglers.}
         \label{fig:lqgialt}
     \end{figure}
-    In dieser Darstellung von Abb. \ref{fig:lqgialt} enstpricht $\Tilde{x} = \begin{bmatrix}\widehat{x} \\ v\end{bmatrix}$ und $-L = \begin{bmatrix}-L\\ 1\end{bmatrix}$. Die Dynamik des Observers ist dadurch gegeben als:
+    In dieser Darstellung von Abb. \ref{fig:lqgialt} enstpricht $\Tilde{x} = \begin{bmatrix}\widehat{x} \\ v\end{bmatrix}$ und $-L = \begin{bmatrix}-L\\ I \end{bmatrix}$. Die Dynamik des Observers ist dadurch gegeben als:
     \begin{align*}
         \Dot{\Tilde{x}}(t) &= \begin{bmatrix} \widehat{A}-\widehat{B}K - L\widehat{C} & BK_I\\
         0 & 0
-        \end{bmatrix}\Tilde{x} + \begin{bmatrix} -L \\ 1\end{bmatrix} e \quad (e = r-y = -y)\\
+        \end{bmatrix}\Tilde{x} + \begin{bmatrix} -L \\ I \end{bmatrix} e \quad (e = r-y = -y)\\
         u &= \begin{bmatrix} -K & K_I \end{bmatrix}\Tilde{x}
     \end{align*}
         
