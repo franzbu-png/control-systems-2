@@ -5,7 +5,11 @@
     \textbf{Linear:} da das System linear ist:
     \[\frac{d}{dt}x(t) = A\cdot x(t) + B\cdot u(t),\ x(t) \in \mathbb{R}^n,\ u(t) \in \mathbb{R}^m\]
     \textbf{Quadratic:} Definition einer  \textit{quadratischen} Kostenfunktion J:
-    \[J(u(t)) = \int_0^\infty\Big(x(u(t))^T\cdot Q\cdot x(u(t)) + u(t)^T \cdot R \cdot u(t)\Big)dt\]
+    \[
+    \colorboxed{red}{
+    J(u(t)) = \int_0^\infty\Big(x(u(t))^T\cdot Q\cdot x(u(t)) + u(t)^T \cdot R \cdot u(t)\Big)dt
+    }
+    \]
     der optimale Eingnang $u^*(t)$ minimiert die Kostenfunktion J:
      \[u^*(t) = \arg\min J(u(t))\]
      Die Zustände $x(t)$ und Eingänge $u(t)$ werden in Optimierungsproblem mit $Q$ und $R$ gewichtet, wobei 

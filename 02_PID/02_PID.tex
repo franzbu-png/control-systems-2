@@ -35,6 +35,7 @@
             \begin{itemize}
                 \item $T^* = T_i^*,\  T_d^*$ oftmals gibt \r{A}ström-Hägglund Verfahren bessere Resultate als Ziegler-Nichols. Dies ist jedoch nicht immer der Fall. 
                 \item Beim set point weight $a$ wählt man für $a^* = 1$ 
+                \item Das Design ist nicht garantiert gut oder stabil, dementsprechend soll ein a postepriori Test der closed-loop Stabilität, Frequenz Antwort der Kreisverstärkung, Simulation der Störrungsunterdrückung des closed-loop System durchgeführt werden.
             \end{itemize}
             
     \subsubsection{Direktspezifikationen} 
@@ -49,7 +50,9 @@
         T_d =\frac{1}{2}\cdot\Bigg(\tan(\psi-\varphi_P)\Bigg(\frac{r'_P}{r_P}-\varphi'_P\tan(\varphi-\varphi_P)\Bigg)\\ + \tan(\varphi-\varphi_P) \Bigg(\frac{1}{\omega_c}-\frac{r'_P}{r_P}\Bigg)- \varphi'_P\Bigg)
         \end{multline*}
         \[T_i = (T_d\cdot \omega_c^2 - \tan(\varphi-\varphi_P)\cdot \omega_c)^{-1}\]
-        \textbf{Note:} Die Stabilität ist mit diesem Verfahren nicht garantiert. Phase muss in der Formel in Radiant angegeben werden. 
+        \textbf{Note:}
+        
+        Die Stabilität ist mit diesem Verfahren nicht garantiert. Phase muss in der Formel in Radiant angegeben werden. 
 \subsection{Prädikative PI Regler}
     für Regelstrecken mit wesentlicher Totzeit, das heisst falls 
     \[\frac{T}{T+\tau}>0.3\]
@@ -92,7 +95,7 @@
     \begin{itemize}
         \item Falls Modellfehler und Störungen vorhanden sind wird die Gleichung für die komplementäre Sensitivität wesentlich komplizierter!
         
-        \item Nicht miniphasige NST von $P(s)$ werden zu instabilen Polen 
+        \item Nicht minimalphasige NST von $P(s)$ werden zu instabilen Polen 
     \end{itemize}
     
     Schätzungsfehler von der Totzeit $T$ kann grosse Auswirkungen auf das Systemverhalten haben. Bei einem Schätzfehler von $\pm 20\%$ kann immer noch eine schnelle und robuste Systemantwort ohne übermässige Abweichungen vom Referenzsystem erzielt werden.

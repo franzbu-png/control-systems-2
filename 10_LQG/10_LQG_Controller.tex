@@ -9,11 +9,18 @@
         \caption{Blockdiagramm eines LQG-Reglers}
     \end{figure}
     
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width = \linewidth]{images/10/LQR_alt.png}
-        \caption{Alternative Darstellung des LQR-Reglers}
-    \end{figure}
+    \noindent\begin{minipage}{\linewidth}
+    \begin{center}
+        \input{10_LQG/tikz}
+        \captionof{figure}{Alternative Dastellung des LQG-Reglers aufgeteilt in Controller und Plant.}
+    \end{center}
+    \end{minipage}
+    
+    % \begin{figure}[H]
+    %     \centering
+    %     \includegraphics[width = \linewidth]{images/10/LQR_alt.png}
+    %     \caption{Alternative Darstellung des LQR-Reglers}
+    % \end{figure}
     
 \subsection{Stabilität des LQG}
     Unter der Annahme, dass die Matrizen $\{A, B, C\}$ exakt bekannt sind ergibt sich folgende Dynamik

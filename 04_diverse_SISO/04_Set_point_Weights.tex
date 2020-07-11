@@ -13,7 +13,7 @@
             
             \item $a$ wird mit \r{A}ström-Hägglund bestimmt. Typischerweise wählt man $a\in(0,1)$. Ein guter Wert für $a$ verbesert häufig das closed-loop Verhalten.
         \end{itemize}
-        \textbf{Bemerkung:} Die Gewichtungen Beeinflussen die Stabilität des geschlossenen Reglekreises \textbf{nicht!}
+        \textbf{Bemerkung:} Die Gewichtungen Beeinflussen die Stabilität und Robustheitseigenschaften des geschlossenen Reglekreises \textbf{nicht!}
         \begin{equation*}
             T(s) = \frac{Y(s)}{R(s)}\frac{P\cdot\overbrace{\Big(a\cdot k_p +b\cdot\frac{k_p}{T_i\cdot s} + c\cdot k_p\cdot T_d\cdot s\big)}^{C_{\textnormal{PID,weighted}}}}{1 + P\cdot\underbrace{\Big(k_p + \frac{k_p}{T_i\cdot s} + k_p\cdot T_d\cdot s\big)}_{C_{\textnormal{PID,unweighted}}}}
         \end{equation*}
