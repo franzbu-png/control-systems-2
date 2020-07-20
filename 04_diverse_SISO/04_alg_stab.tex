@@ -5,22 +5,22 @@ Man möchte wissen, ob ein Polynom
 alle NST in der linken komplexen Halbebene hat. Bedingung $a_i>0\, \forall i$ ist notwendig aber nicht hinreichend \Big(alle  NST MMP $\underset{\not\Leftarrow}{\Rightarrow} a_i > 0$\Big).
 
 \subsection{Hurwitz Kriterium}
-    Koeffizienten $a_i$ bekannt. Falls alle Matrizen
+    Koeffizienten $a_i$ bekannt. Falls alle führenden Hauptminoren der Hurwitzmatrix
     \begin{equation*}
         H_1 = a_{n-1}, \,
         H_2 =
-        \begin{bmatrix}
+        \begin{vmatrix}
             a_{n-1} & a_n\\
             a_{n-3} & a_{n-2}
-        \end{bmatrix}, \,
+        \end{vmatrix}, \,
         H_3 = 
-        \begin{bmatrix}
+        \begin{vmatrix}
             a_{n-1} & a_n   & 0\\
             a_{n-3} & a_{n-2} & a_{n-1}\\
             a_{n-5} & a_{n-4} & a_{n-3}
-        \end{bmatrix}, \, \dots
+        \end{vmatrix}, \, \dots
     \end{equation*}
-    positiv definit sind (alle EW grösser als 0), dann sind alls NST in der linken komplexen Halbebene.
+    positive sind, dann sind alle NST in der linken komplexen Halbebene. %definit sind (alle EW grösser als 0), dann sind alls NST in der linken komplexen Halbebene.
     
 \subsection{Kharitonov Kriterium}
     Die Koeffizienten $a_i$ seien nicht exakt bekannt, man weiss jedoch, dass sie in einer gewissen Region liegen:
