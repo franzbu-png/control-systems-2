@@ -1,5 +1,5 @@
 \subsection{Zustandsbeobachter}
-    Lineare Zustandsregler (wie z.B. LQR) basieren auf der Kentniss von $x(t)$. Das ist praktisch aber nicht umsetzbar. Deshalb benutzt man \textit{Zustandsbeobachter} um durch $u(t)$ und $y(t)$ eine Schätzung $\widehat{x}(t)$ zu erhalten.
+    Lineare Zustandsregler (wie z.B. LQR) basieren auf der Kentniss von $x(t)$. Das ist praktisch aber nicht umsetzbar. Deshalb benutzt man \emph{Zustandsbeobachter} um durch $u(t)$ und $y(t)$ eine Schätzung $\widehat{x}(t)$ zu erhalten.
     
     \subsection{Luenberger Beobachter}
         Man will eine Beobachterdynamik $\frac{d}{dt}\widehat{x}(t)$ s.t. der Beobachtungsfehler $e(t) = x(t) - \widehat{x}(t)$ asymptotisch zu Null konvergiert $\displaystyle\lim_{t\to\infty}e(t) = 0$.

@@ -7,7 +7,7 @@ x(t) \\ v(t)
 Die Ableitung des Zustands lautet
 \begin{align*}
     \frac{d}{dt}\Tilde{x}(t) = \begin{bmatrix}A\cdot x(t) + B \cdot ( u(t) + w(t))\\-y(t)\end{bmatrix}\\
-    = \underbrace{\begin{bmatrix}A&0\\-C & 0\end{bmatrix}}_{\Tilde{A}}\cdot\underbrace{\begin{bmatrix}x(t) \\v(t)\end{bmatrix}}_{\Tilde{B}}+\begin{bmatrix}B \\ 0 \end{bmatrix} \cdot(u(t)+w(t))
+    = \underbrace{\begin{bmatrix}A&0\\-C & 0\end{bmatrix}}_{\Tilde{A}}\cdot\begin{bmatrix}x(t) \\v(t)\end{bmatrix}+\underbrace{\begin{bmatrix}B \\ 0 \end{bmatrix}}_{\Tilde{B}} \cdot(u(t)+w(t))
 \end{align*}
 Das neue System erfüllt im Gelichgewicht $\dot v = y(t) = 0$
 
