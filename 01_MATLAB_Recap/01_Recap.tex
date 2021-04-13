@@ -17,6 +17,7 @@
         2   &   6.02..\\
         1   &   0   \\
         $\frac{1}{\sqrt{2}}$  &   -3.0103\\
+        0.5 & -6.02\\
         0.316.. & -10\\
         0.1 &   -20 \\
         0.01    &   -40\\
@@ -111,7 +112,16 @@
         A = \begin{bmatrix} a & b \\ c & d \end{bmatrix}\quad
         A^{-1} = \frac{1}{a\cdot d - c\cdot b}\begin{bmatrix} d & -b \\ -c & a \end{bmatrix}\quad
     \end{equation*}
+    
 \subsection{Nützliche Ableitungen}
-    \begin{align*}
-        arctan(a \cdot x) &\xrightarrow{\frac{\partial}{\partial x}} \frac{a}{1+(ax)^2}\\ 
-    \end{align*}
+    \begin{equation*}
+        \frac{\partial}{\partial x}\arctan(ax) = \frac{a}{1+(ax)^2}
+    \end{equation*}
+
+\vfill\null\columnbreak
+\subsection{Signalflussbilder}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width = 0.9\linewidth]{01/01_signalfluesse.jpg}
+        \caption{Singalflussbilder und dazugehörige Transfer Functions.}
+    \end{figure}

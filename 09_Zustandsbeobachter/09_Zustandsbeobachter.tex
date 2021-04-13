@@ -1,5 +1,5 @@
 \subsection{Zustandsbeobachter}
-    Lineare Zustandsregler (wie z.B. LQR) basieren auf der Kentniss von $x(t)$. Das ist praktisch aber nicht umsetzbar. Deshalb benutzt man \emph{Zustandsbeobachter} um durch $u(t)$ und $y(t)$ eine Schätzung $\widehat{x}(t)$ zu erhalten.
+    Lineare Zustandsregler (wie z.B. LQR) basieren auf der Kenntnis von $x(t)$. Das ist praktisch aber nicht umsetzbar. Deshalb benutzt man \emph{Zustandsbeobachter} um durch $u(t)$ und $y(t)$ eine Schätzung $\widehat{x}(t)$ zu erhalten.
     
     \subsection{Luenberger Beobachter}
         Man will eine Beobachterdynamik $\frac{d}{dt}\widehat{x}(t)$ s.t. der Beobachtungsfehler $e(t) = x(t) - \widehat{x}(t)$ asymptotisch zu Null konvergiert $\displaystyle\lim_{t\to\infty}e(t) = 0$.
@@ -12,7 +12,7 @@
         \begin{figure}[H]
             \centering
             \includegraphics[width = 0.7\linewidth]{images/09/luenberger_obsv.jpeg}
-            \caption{Blockdiagramm des Luenberger Observeres}
+            \caption{Blockdiagramm des Luenberger Observers}
         \end{figure}
         
         Unter der Annahme, dass ein perfektes Modell vorliegt \big(i.e. $\widehat{(\cdot)} = (\cdot)$\big) ergibt sich Folgende Fehlerdynamik:
@@ -33,7 +33,7 @@
             \begin{equation*}
                 \operatorname{eig}(X) = \operatorname{eig}(X^\top),\quad X\in\mathbb{R}^{n\times n}
             \end{equation*}
-            können wir mit LQR Formulierung für die Matrix $A^\top - C^\top\cdot L^\top$ die Matrix $L$ bestimmen, welche uns die MAtrix $A-L\cdot C$ Hurwitz macht.
+            können wir mit LQR Formulierung für die Matrix $A^\top - C^\top\cdot L^\top$ die Matrix $L$ bestimmen, welche uns die Matrix $A-L\cdot C$ Hurwitz macht.
             
             Mit den Änderungen
             \begin{align*}
@@ -55,8 +55,8 @@
             
             \textbf{Bemerkungen:}
             \begin{itemize}
-                \item $L$ ist statisch (muss nur einaml berechnet werden)
-                \item Matrizen $\Bar{B}$ und $q$ werden iterativ getunt bis Resultat zufriedenstelligend ist.
+                \item $L$ ist statisch (muss nur einmal berechnet werden)
+                \item Matrizen $\Bar{B}$ und $q$ werden iterativ getunt bis Resultat zufriedenstellend ist.
                 \item Falls $n_y\neq0$ ist $\frac{d}{dt}e(t)$ noch um $-L\cdot n_y(t)$ erweitert. $L$ kann nicht beliebig gross gewählt werden.
             \end{itemize}
             

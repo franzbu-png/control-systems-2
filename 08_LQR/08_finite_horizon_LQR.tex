@@ -15,12 +15,16 @@ wobei $\Phi(t)$ durch Rückwärtsintegration von $\Phi(t_b) = P$ gefunden werden
     \item asymptotische Stabilität kann nicht garantiert werden, da für $t>t_b$ nicht optimiert wird.
 \end{itemize}
 \subsubsection{Folgeregelung}
-Zusätzlich dur zeitinvarianten Dynamik wird nun der zeitvariante Ausgang eingeführt: \[y(t) = C(t) \cdot x(t)\]
-Die KOsten die über ein Zeitintervall $[\,t_a,t_b]\,$ integriert werden lauten: \begin{align*}J(u)=(r(t_b)-y(t_b))^T\cdot P\cdot(r(t_b)-y(t_b))\\
-\int_{t_a}^{t_b}((r(t)-y(t))^T \cdot Q(t)\cdot (r(t)-y(t))+u(t)^T\cdot R(t) \cdot u(t))dt
+Zusätzlich zur zeitinvarianten Dynamik wird nun der zeitvariante Ausgang eingeführt: \[y(t) = C(t) \cdot x(t)\]
+Die Kosten die über ein Zeitintervall $[\,t_a,t_b]\,$ integriert werden lauten: 
+
+\begin{align*}J(u)&=(r(t_b)-y(t_b))^T\cdot P\cdot(r(t_b)-y(t_b))\\
+&+\int_{t_a}^{t_b}((r(t)-y(t))^T \cdot Q(t)\cdot (r(t)-y(t))+u(t)^T\cdot R(t) \cdot u(t))dt
 \end{align*}
+
 Die Lösung der finiten horizon Folgeregelung lautet: \[u(t) = -K(t)\cdot x(t) + v(t)\]
 \textbf{Bemerkungen:}
+
 \begin{itemize}
     \item Die Referenztrajektorie $r(t)$ ist eine Wahl, die vor dem Lösen des Optimierungsproblems festgelegt wird.
     \item Die Matrix $K(t)$ ist zeitabhängig. Sie muss ensprechend der Zeitabhängigkeit der Matrizen $\{A(t),B(t),Q(t),R(t)\}$ berechnen werden. 

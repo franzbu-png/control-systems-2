@@ -1,5 +1,5 @@
 \subsection{Störungsunterdrückung - LQRI}
-Um Störung ud Modelfehler zu unterdrücken greift man zum LQRI, welcher zusätzlich zum standard LQR-Regler noch ein integratives Verhalten eingeführt wird. Um Störungen zu unterdrücken wird das Integral des Fehlers als neuer Zustand definiert: \[ v(t) = \int^t_0 e(\tau)d\tau = \int^t_0 (0-<(\tau))d\tau.\]
+Um Störung und Modelfehler zu unterdrücken greift man zum LQRI, welcher zusätzlich zum standard LQR-Regler noch ein integratives Verhalten eingeführt wird. Um Störungen zu unterdrücken wird das Integral des Fehlers als neuer Zustand definiert: \[ v(t) = \int^t_0 e(\tau)d\tau = \int^t_0 (0-<(\tau))d\tau.\]
 der neue Gesamtzustand lautet somit: \[\Tilde{x}(t) =\begin{bmatrix}
 x(t) \\ v(t)
 \end{bmatrix}\in \mathbb{R}^{n+m}\]
@@ -9,9 +9,13 @@ Die Ableitung des Zustands lautet
     \frac{d}{dt}\Tilde{x}(t) = \begin{bmatrix}A\cdot x(t) + B \cdot ( u(t) + w(t))\\-y(t)\end{bmatrix}\\
     = \underbrace{\begin{bmatrix}A&0\\-C & 0\end{bmatrix}}_{\Tilde{A}}\cdot\begin{bmatrix}x(t) \\v(t)\end{bmatrix}+\underbrace{\begin{bmatrix}B \\ 0 \end{bmatrix}}_{\Tilde{B}} \cdot(u(t)+w(t))
 \end{align*}
-Das neue System erfüllt im Gelichgewicht $\dot v = y(t) = 0$
+Das neue System erfüllt im Gleichgewicht $\dot v = y(t) = 0$
 
-\includegraphics[width=0.8\linewidth]{images/08/LQRI.jpg}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{images/08/LQRI.jpg}
+    \caption{Standarddarstellung des LQRI}
+\end{figure}
 
 Die Standard LQR Formulierung kann nun mit den Matrizen $\Tilde{A}$ und $\Tilde{B}$ gelöst werden, wobei die Dimension der $Q$ Matrix angepasst werden muss:
 \[\Tilde{Q} =\begin{bmatrix} Q & 0 \\ 0 & Q_I\end{bmatrix},\ Q_I = \begin{bmatrix}

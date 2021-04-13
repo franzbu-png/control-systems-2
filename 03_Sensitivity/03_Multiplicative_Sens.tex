@@ -21,10 +21,14 @@
     
     \subsubsection{Nominelle Regelgüte}
         Um die Sensitivität zu Betragsmässig zu begrenzen wird eine rationale TF $W_1(s)$ eingeführt, wobei gelten muss:
-        \begin{gather*}
-            \| S(s)\cdot W_1(s)\|_{\textcolor{red}{\infty}} < 1 \Rightarrow |S(\jw)| < |W_1^{-1}(\jw)|\\
-            |W_1(\jw)| < |1 + L(\jw)|
-        \end{gather*}
+        \begin{equation*}
+        \colorboxed{red}{
+        \begin{aligned}
+            \| S(s)\cdot W_1(s)\|_{\textcolor{red}{\infty}} < 1 &\Rightarrow |S(\jw)| < |W_1^{-1}(\jw)|\\
+            |W_1(\jw)| &< |1 + L(\jw)|
+        \end{aligned}
+        }
+        \end{equation*}
         
         Die geometrische Interpretation von $W_1(s)$ ist, dass $L(\jw)$ nicht in einen um $(-1 + j0)$ zentrieren Kreis mit Radius $|W_1(\jw)|$ eintreten darf.
     
